@@ -2,9 +2,11 @@
  * Created by mapbar_front on 2019-01-06.
  */
 import Test from '../packages/test/index'
+import SinglePicker from '../packages/single-picker/index'
 
 const components = [
-  Test
+  Test,
+  SinglePicker
 ]
 
 const install = function (Vue, opts = {}) {
