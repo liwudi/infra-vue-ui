@@ -1,8 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import routes from './router.config'
+import ComponentList from '../pages/component-list/component-list'
+
 Vue.use(Router)
 
+const routes = [
+  { path: '/', component: ComponentList }
+]
 export default new Router({
   // mode: 'history',
   mode: 'hash',

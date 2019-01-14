@@ -43,45 +43,14 @@ export default {
     },
     source: {
       default: function () {
-        return [
-          {
-            value: 'AGENCY',
-            text: '政府机关'
-          }, {
-            value: 'INSTITUTION',
-            text: '事业单位'
-          }, {
-            value: 'STATE',
-            text: '国企'
-          },
-          {
-            value: 'FUNDED',
-            text: '合资'
-          },
-          {
-            value: 'STOCK',
-            text: '民营'
-          },
-          {
-            value: 'PRIVATE',
-            text: '私营'
-          },
-          {
-            value: 'INDIVIDUAL',
-            text: '个体'
-          },
-          {
-            value: 'FOREIGNCOMPANY',
-            text: '外企'
-          }
-        ]
+        return []
       },
       type: Array
     }
   },
   data () {
     return {
-      enable: true,
+      enable: false,
       selectedItem: null,
       text: ''
     }
@@ -133,6 +102,10 @@ export default {
 </script>
 
 <style scoped>
+  .singlepicker-content ul {
+    padding: 0 !important;
+    margin: 0;
+  }
   .koala-input-box {
     overflow: hidden;
   }
