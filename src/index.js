@@ -15,11 +15,11 @@ const install = function (Vue, opts = {}) {
   })
 }
 
-module.exports = {
+const infraVueUI = {
   version: '1.0.0',
   install,
   Test,
   SinglePicker
 }
 
-module.exports.default = module.exports
+export default infraVueUI
