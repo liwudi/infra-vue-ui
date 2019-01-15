@@ -22,4 +22,4 @@ const infraVueUI = {
   SinglePicker
 }
 
-module.exports = infraVueUI;
+export default infraVueUI；
