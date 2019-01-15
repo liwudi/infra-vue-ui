@@ -17,5 +17,9 @@ const install = function (Vue, opts = {}) {
 
 module.exports = {
   version: '1.0.0',
-  install
+  install,
+  Test,
+  SinglePicker
 }
+
+module.exports.default = module.exports
