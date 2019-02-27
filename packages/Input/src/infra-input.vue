@@ -1,0 +1,76 @@
+<template>
+  <div class="pc-userinfo-item">
+    <img v-if="icon" class="pc-iconsize" :src="icon" alt="手机">
+    <div :style="{ marginLeft: icon ? '40px' : '0px' }" class="pc-input-box">
+      <input
+        :disabled="disabled"
+        :value="value"
+        :style="{borderLeft: icon ? '1px solid #e6e6e6' : 'none'}"
+        @input="inputEvent"
+        @blur="blueEvent" class="pc-input"
+        :placeholder="placeholder"
+        type="text"
+      >
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Input',
+  props: {
+    icon: {},
+    placeholder: {
+      type: String
+    },
+    value: {
+      type: String
+    },
+    disabled: {
+      type: Boolean
+    },
+    blueEvent: {
+      type: Function,
+      default: function () {}
+    }
+  },
+  methods: {
+    inputEvent (e) {
+      const value = e.target.value
+      this.$emit('input', value)
+    }
+  }
+}
+</script>
+
+<style scoped>
+  .pc-userinfo-item {
+    height: 40px;
+    width: 290px;
+    display: inline-block;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .pc-input-box {
+    margin-left: 40px;
+    height: 100%;
+  }
+  .pc-input {
+    outline: none;
+    border-left: 1px solid #e6e6e6;
+    border-bottom: 0;
+    border-top: 0;
+    border-right: 0;
+    background: #f2f2f2;
+    height: inherit;
+    width: 100%;
+    padding-left: 5px;
+    display: inline-block;
+  }
+  .pc-iconsize {
+    width: 40px;
+    height: 41px;
+    float: left;
+  }
+</style>

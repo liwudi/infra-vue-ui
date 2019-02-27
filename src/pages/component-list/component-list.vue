@@ -1,15 +1,21 @@
 <template>
     <div>
+      <InfraButton style="float: left">按钮</InfraButton>
+      <InfraInput style="float: left" placeholder="请输入内容"></InfraInput>
+      <InfraSelect placeholder="请选择城市"></InfraSelect>
       <single-picker
         label="机关单位"
         :source="source"
-        :defaultShow="false"
+        :defaultShow="true"
       ></single-picker>
     </div>
 </template>
 
 <script>
 import SinglePicker from '../../../packages/single-picker/index'
+import InfraButton from '../../../packages/Button/index'
+import InfraInput from '../../../packages/Input/index'
+import InfraSelect from '../../../packages/Select/index'
 export default {
   name: 'component-list',
   data: function () {
@@ -49,7 +55,10 @@ export default {
     }
   },
   components: {
-    SinglePicker
+    SinglePicker,
+    InfraButton,
+    InfraInput,
+    InfraSelect
   }
 }
 </script>
