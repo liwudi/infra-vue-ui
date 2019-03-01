@@ -33,8 +33,8 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     border-radius: 5px;
+    outline: none;
   }
-
   .btn-warning {
     background: #F5A623;
     color: #ffffff;
