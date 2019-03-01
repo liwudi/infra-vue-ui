@@ -52,4 +52,18 @@ export default {
     color: #3c78ff;
     cursor: pointer;
   }
+  .flexBox {
+    display: flex;
+  }
+  .flexCol {
+    flex-direction: column;
+  }
+  .flex1 {
+    flex: 1;
+  }
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 </style>

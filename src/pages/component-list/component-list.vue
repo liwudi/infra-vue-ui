@@ -3,6 +3,7 @@
       <InfraButton style="float: left">按钮</InfraButton>
       <InfraInput style="float: left" placeholder="请输入内容"></InfraInput>
       <InfraSelect placeholder="请选择城市"></InfraSelect>
+      <InfraButton @click="alertEvent" style="float: left">触发Alert</InfraButton>
       <single-picker
         label="机关单位"
         :source="source"
@@ -16,6 +17,7 @@ import SinglePicker from '../../../packages/single-picker/index'
 import InfraButton from '../../../packages/Button/index'
 import InfraInput from '../../../packages/Input/index'
 import InfraSelect from '../../../packages/Select/index'
+import AlertMessage from '../../../packages/Alert/index'
 export default {
   name: 'component-list',
   data: function () {
@@ -59,6 +61,11 @@ export default {
     InfraButton,
     InfraInput,
     InfraSelect
+  },
+  methods: {
+    alertEvent: function () {
+      AlertMessage.info('我触发alert提示框')
+    }
   }
 }
 </script>
