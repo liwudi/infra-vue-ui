@@ -40,7 +40,7 @@ packages：整个项目的所有UI组件。
 
 参照element-ui。
 
-组件的name一律使用首字母大写的方式进行命名。如果是两个单词组成的组件名，单词首字母都使用大写。
+组件的name一律使用官方推荐的方式进行命名。kebab-case、PascalCase。
 
 ```vue
 <template>
@@ -67,8 +67,6 @@ export default {
 每个单独的组件，都在一个单独的文件夹中，这个单独的文件夹中必须有一个index.js和一个src文件夹。
 
 其中，index.js用于该组件模块的导出，src文件夹负责组件的开发工作。
-
-## 关于组件的特效预览
 
 
 
