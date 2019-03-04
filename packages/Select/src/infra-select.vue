@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'Select',
+  name: 'infra-select',
   data () {
     return {
       isShowList: false,

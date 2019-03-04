@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'Input',
+  name: 'infra-input',
   props: {
     icon: {},
     placeholder: {

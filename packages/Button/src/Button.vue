@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'Button',
+  name: 'infra-button',
   props: {
     disabled: {
       type: Boolean,
