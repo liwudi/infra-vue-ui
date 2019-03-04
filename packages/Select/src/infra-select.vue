@@ -2,32 +2,54 @@
   <div class="userinfo-item">
     <img v-if="icon" class="iconsize" :src="icon" alt="手机">
     <div @click.prevent="clickEvent" :style="{ marginLeft: icon ? '40px' : '0px' }" class="input-box">
-      <input :value="value" disabled class="input" :placeholder="placeholder" type="text">
+      <input
+        :value="currentValue"
+        disabled
+        class="input"
+        :placeholder="placeholder"
+        type="text"
+        :style="{borderLeft: icon ? '1px solid #e6e6e6' : 'none'}"
+      >
     </div>
     <ul v-if="isShowList" class="list">
-      <li v-for="item in cityList" :key="item" class="list-item" @click="choiceEvent(item)">{{item}}</li>
+      <li v-for="item in list" :key="item" class="list-item" @click="choiceEvent(item)">{{item}}</li>
+      <li v-if="!list.length" class="list-item">无数据</li>
     </ul>
   </div>
 </template>
 
 <script>
-import cityData from './cityData'
-
 export default {
   name: 'Select',
   data () {
     return {
       isShowList: false,
-      cityList: cityData,
-      isNomalClick: false
+      list: this.dataSource || [],
+      isNomalClick: false,
+      currentValue: this.value
     }
   },
-  props: ['icon', 'placeholder', 'value'],
+  props: {
+    icon: {},
+    placeholder: [String],
+    value: [String, Object],
+    dataSource: [Array]
+  },
   created () {
     this.bindDocumentClick()
   },
   beforeDestroy () {
     this.clearDocumentClick()
+  },
+  watch: {
+    dataSource: function (val, oldVal) {
+      this.list = JSON.parse(JSON.stringify(val))
+    },
+    value: function (val, oldVal) {
+      if (this.currentValue !== val) {
+        this.currentValue = val
+      }
+    }
   },
   methods: {
     clickEvent: function () {
@@ -36,6 +58,7 @@ export default {
     },
     choiceEvent: function (item) {
       this.nomalClickDeal()
+      this.currentValue = item
       this.$emit('input', item)
       this.isShowList = false
     },
