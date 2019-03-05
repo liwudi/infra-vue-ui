@@ -129,6 +129,7 @@ export default {
     overflow: auto;
     z-index: 10000;
     border: 1px solid #e6e6e6;
+    box-sizing: border-box;
     list-style: none;
     margin: 0;
     padding: 0;
