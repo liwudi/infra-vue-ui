@@ -7,7 +7,8 @@
         :value="value"
         :style="{borderLeft: icon ? '1px solid #e6e6e6' : 'none'}"
         @input="inputEvent"
-        @blur="blueEvent" class="pc-input"
+        @blur="blurEvent"
+        class="pc-input"
         :placeholder="placeholder"
         type="text"
       >
@@ -28,16 +29,14 @@ export default {
     },
     disabled: {
       type: Boolean
-    },
-    blueEvent: {
-      type: Function,
-      default: function () {}
     }
   },
   methods: {
     inputEvent (e) {
-      const value = e.target.value
-      this.$emit('input', value)
+      this.$emit('input', e)
+    },
+    blurEvent (e) {
+      this.$emit('blur', e)
     }
   }
 }
