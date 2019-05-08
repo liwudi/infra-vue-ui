@@ -7,6 +7,8 @@ import Select from '../packages/Select/index'
 
 // 消息提示
 import AlertMessage from '../packages/Alert/index'
+// 消息提示-手机
+import MobileAlertMessage from '../packages/MobileAlert/index'
 
 const components = [
   Button,
@@ -20,6 +22,7 @@ const install = function (Vue, opts = {}) {
     Vue.component(component.name, component)
   })
   Vue.prototype.$alertMessage = AlertMessage
+  Vue.prototype.$mobileAlertMessage = MobileAlertMessage
 }
 
 const infraVueUI = {
@@ -28,7 +31,8 @@ const infraVueUI = {
   Button,
   Input,
   Select,
-  AlertMessage
+  AlertMessage,
+  MobileAlertMessage
 }
 
 export default infraVueUI
