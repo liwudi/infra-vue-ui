@@ -68,5 +68,11 @@ export default {
 
 其中，index.js用于该组件模块的导出，src文件夹负责组件的开发工作。
 
+## 改动日志
+
+1，2019-05-19，修改了eslint的配置规则。添加了rules，'semi' :['error' , 'always'], 'indent': 0，修正MultipleSelectionInput组件。
+2，2019-05-26，对MultipleSelectionInput进行优化。
+
+
 
 

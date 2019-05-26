@@ -10,20 +10,20 @@
 </template>
 
 <script>
-export default {
-  name: 'infra-button',
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false
+  export default {
+    name: 'infra-button',
+    props: {
+      disabled: {
+        type: Boolean,
+        default: false
+      }
+    },
+    methods: {
+      handleClick: function (evt) {
+        this.$emit('click', evt);
+      }
     }
-  },
-  methods: {
-    handleClick: function (evt) {
-      this.$emit('click', evt)
-    }
-  }
-}
+  };
 </script>
 
 <style scoped>
@@ -35,6 +35,7 @@ export default {
     border-radius: 5px;
     outline: none;
   }
+
   .btn-warning {
     background: #F5A623;
     color: #ffffff;

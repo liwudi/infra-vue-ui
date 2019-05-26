@@ -17,29 +17,29 @@
 </template>
 
 <script>
-export default {
-  name: 'infra-input',
-  props: {
-    icon: {},
-    placeholder: {
-      type: String
+  export default {
+    name: 'infra-input',
+    props: {
+      icon: {},
+      placeholder: {
+        type: String
+      },
+      value: {
+        type: String
+      },
+      disabled: {
+        type: Boolean
+      }
     },
-    value: {
-      type: String
-    },
-    disabled: {
-      type: Boolean
+    methods: {
+      inputEvent (e) {
+        this.$emit('input', e);
+      },
+      blurEvent (e) {
+        this.$emit('blur', e);
+      }
     }
-  },
-  methods: {
-    inputEvent (e) {
-      this.$emit('input', e)
-    },
-    blurEvent (e) {
-      this.$emit('blur', e)
-    }
-  }
-}
+  };
 </script>
 
 <style scoped>
@@ -51,10 +51,12 @@ export default {
     border-radius: 5px;
     overflow: hidden;
   }
+
   .pc-input-box {
     margin-left: 40px;
     height: 100%;
   }
+
   .pc-input {
     outline: none;
     border-left: 1px solid #e6e6e6;
@@ -67,6 +69,7 @@ export default {
     padding-left: 5px;
     display: inline-block;
   }
+
   .pc-iconsize {
     width: 40px;
     height: 41px;

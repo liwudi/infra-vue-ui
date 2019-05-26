@@ -19,71 +19,71 @@
 </template>
 
 <script>
-export default {
-  name: 'infra-select',
-  data () {
-    return {
-      isShowList: false,
-      list: this.dataSource || [],
-      isNomalClick: false,
-      currentValue: this.value
-    }
-  },
-  props: {
-    icon: {},
-    placeholder: [String],
-    value: [String, Object],
-    dataSource: [Array]
-  },
-  created () {
-    this.bindDocumentClick()
-  },
-  beforeDestroy () {
-    this.clearDocumentClick()
-  },
-  watch: {
-    dataSource: function (val, oldVal) {
-      this.list = JSON.parse(JSON.stringify(val))
+  export default {
+    name: 'infra-select',
+    data () {
+      return {
+        isShowList: false,
+        list: this.dataSource || [],
+        isNomalClick: false,
+        currentValue: this.value
+      };
     },
-    value: function (val, oldVal) {
-      if (this.currentValue !== val) {
-        this.currentValue = val
-      }
-    }
-  },
-  methods: {
-    clickEvent: function () {
-      this.nomalClickDeal()
-      this.isShowList = !this.isShowList
+    props: {
+      icon: {},
+      placeholder: [String],
+      value: [String, Object],
+      dataSource: [Array]
     },
-    choiceEvent: function (item) {
-      this.nomalClickDeal()
-      this.currentValue = item
-      this.$emit('input', item)
-      this.isShowList = false
+    created () {
+      this.bindDocumentClick();
     },
-    nomalClickDeal: function () {
-      this.timer && window.clearTimeout(this.timer)
-      this.isNomalClick = true
-      this.timer = setTimeout(() => {
-        this.isNomalClick = false
-      }, 300)
+    beforeDestroy () {
+      this.clearDocumentClick();
     },
-    bindDocumentClick () {
-      let _this = this
-      document.body.onclick = function () {
-        setTimeout(() => {
-          if (!_this.isNomalClick) {
-            _this.isShowList = false
-          }
-        }, 200)
+    watch: {
+      dataSource: function (val, oldVal) {
+        this.list = JSON.parse(JSON.stringify(val));
+      },
+      value: function (val, oldVal) {
+        if (this.currentValue !== val) {
+          this.currentValue = val;
+        }
       }
     },
-    clearDocumentClick () {
-      document.body.onclick = null
+    methods: {
+      clickEvent: function () {
+        this.nomalClickDeal();
+        this.isShowList = !this.isShowList;
+      },
+      choiceEvent: function (item) {
+        this.nomalClickDeal();
+        this.currentValue = item;
+        this.$emit('input', item);
+        this.isShowList = false;
+      },
+      nomalClickDeal: function () {
+        this.timer && window.clearTimeout(this.timer);
+        this.isNomalClick = true;
+        this.timer = setTimeout(() => {
+          this.isNomalClick = false;
+        }, 300);
+      },
+      bindDocumentClick () {
+        let _this = this;
+        document.body.onclick = function () {
+          setTimeout(() => {
+            if (!_this.isNomalClick) {
+              _this.isShowList = false;
+            }
+          }, 200);
+        };
+      },
+      clearDocumentClick () {
+        document.body.onclick = null;
+      }
     }
-  }
-}
+  };
 </script>
 
 <style scoped>

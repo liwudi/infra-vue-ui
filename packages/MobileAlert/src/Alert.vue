@@ -8,24 +8,24 @@
 </template>
 
 <script>
-export default {
-  name: 'Alert',
-  data: function () {
-    return {
-      message: null,
-      onClose: null
-    }
-  },
-  methods: {
-    click: function () {
-      if (typeof this.onClose === 'function') {
-        this.onClose(this)
+  export default {
+    name: 'Alert',
+    data: function () {
+      return {
+        message: null,
+        onClose: null
       };
-      this.$destroy()
-      this.$el.parentNode.removeChild(this.$el)
+    },
+    methods: {
+      click: function () {
+        if (typeof this.onClose === 'function') {
+          this.onClose(this);
+        }
+        this.$destroy();
+        this.$el.parentNode.removeChild(this.$el);
+      }
     }
-  }
-}
+  };
 </script>
 
 <style scoped>
@@ -53,21 +53,27 @@ export default {
     color: #009FE8;
     cursor: pointer;
   }
+
   .flexBox {
     display: flex;
   }
+
   .flexCol {
     flex-direction: column;
   }
+
   .flex1 {
     flex: 1;
   }
+
   .flex2 {
     flex: 2;
   }
+
   .flex3 {
     flex: 2;
   }
+
   .center {
     display: flex;
     align-items: center;
