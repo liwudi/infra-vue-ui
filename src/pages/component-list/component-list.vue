@@ -6,11 +6,12 @@
       <InfraButton @click="alertEvent" style="float: left">触发Alert</InfraButton>
       <InfraButton @click="alertMEvent" style="float: left">触发MobileAlert</InfraButton>
       <div>
-        <InfraMultipleSelectionInput
+        <infra-multiple-selection-input
+          style="margin-top: 30px"
           :dataSource="dataSource"
           :checkedList="checkedList"
           @change="changeEvent"
-        ></InfraMultipleSelectionInput>
+        ></infra-multiple-selection-input>
       </div>
     </div>
 </template>

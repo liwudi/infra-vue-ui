@@ -4,6 +4,7 @@
 import Button from '../packages/Button/index';
 import Input from '../packages/Input/index';
 import Select from '../packages/Select/index';
+import MultipleSelectionInput from '../packages/MultipleSelectionInput/index';
 
 // 消息提示
 import AlertMessage from '../packages/Alert/index';
@@ -13,7 +14,8 @@ import MobileAlertMessage from '../packages/MobileAlert/index';
 const components = [
   Button,
   Input,
-  Select
+  Select,
+  MultipleSelectionInput
 ];
 
 const install = function (Vue, opts = {}) {
@@ -31,6 +33,7 @@ const infraVueUI = {
   Button,
   Input,
   Select,
+  MultipleSelectionInput,
   AlertMessage,
   MobileAlertMessage
 };

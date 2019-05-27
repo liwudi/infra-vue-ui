@@ -35,7 +35,7 @@
    * @info: 向上层暴露两个接口，一个是要展示的数据域dataSource，一个是checkedList，里面携带dataSource数据项的id数组，一个是上层的change事件，得到的结果是处理后的数据。
    */
   export default {
-    name: 'MultipleSelectionInput',
+    name: 'infra-multiple-selection-input',
     data: function () {
       return {
         isClickChoice: false, // 为了在业务上分清楚点击事件还有失焦事件。
@@ -217,6 +217,7 @@
     max-height: 200px;
     overflow: auto;
     border: 1px solid #d2d6de;
+    box-sizing: border-box;
   }
   .selectItem {
     border-bottom: 1px solid #d2d6de;
