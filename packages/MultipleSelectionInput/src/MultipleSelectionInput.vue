@@ -17,8 +17,8 @@
           <input :checked="isAllChoice" type="checkbox" @change="allChoiceChange"/>
           <span>全部选择</span>
         </div>
-        <div class="selectItem" v-for="(source, index) in filterList" :key="source.id">
-          <input :checked="source.isChoice" type="checkbox" @change="changeItem(index)"/>
+        <div class="selectItem" v-for="source in filterList" :key="source.id">
+          <input :checked="source.isChoice" type="checkbox" @change="changeItem(source.id)"/>
           <span>{{source.name}}</span>
         </div>
       </div>
@@ -61,7 +61,7 @@
        * @returns {*}
        */
       choicedList: function () {
-        return this.filterList.filter(item => {
+        return this.sourceList.filter(item => {
           return item.isChoice;
         });
       },
@@ -151,11 +151,11 @@
           this.isClickChoice = false;
         }, 400);
       },
-      changeItem: function (index) {
+      changeItem: function (id) {
         // @todo: 优化部分，把sourceList的数据修正使用map的方式进行。
         // this.sourceList[index].isChoice = !this.sourceList[index].isChoice;
         this.sourceList = this.sourceList.map((item, idx) => {
-          if (idx === index) {
+          if (item.id === id) {
             item.isChoice = !item.isChoice;
           }
           return item;

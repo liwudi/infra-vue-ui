@@ -20,7 +20,6 @@ const components = [
 
 const install = function (Vue, opts = {}) {
   components.map(component => {
-    console.log(component.name);
     Vue.component(component.name, component);
   });
   Vue.prototype.$alertMessage = AlertMessage;
