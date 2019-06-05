@@ -5,17 +5,21 @@ import Button from '../packages/Button/index';
 import Input from '../packages/Input/index';
 import Select from '../packages/Select/index';
 import MultipleSelectionInput from '../packages/MultipleSelectionInput/index';
+import Upload from '../packages/Upload/index';
 
 // 消息提示
 import AlertMessage from '../packages/Alert/index';
 // 消息提示-手机
 import MobileAlertMessage from '../packages/MobileAlert/index';
+// 图片预览
+import PreviewImage from '../packages/PreviewImage/index';
 
 const components = [
   Button,
   Input,
   Select,
-  MultipleSelectionInput
+  MultipleSelectionInput,
+  Upload
 ];
 
 const install = function (Vue, opts = {}) {
@@ -24,6 +28,7 @@ const install = function (Vue, opts = {}) {
   });
   Vue.prototype.$alertMessage = AlertMessage;
   Vue.prototype.$mobileAlertMessage = MobileAlertMessage;
+  Vue.prototype.$previewImage = PreviewImage;
 };
 
 const infraVueUI = {
@@ -33,8 +38,10 @@ const infraVueUI = {
   Input,
   Select,
   MultipleSelectionInput,
+  Upload,
   AlertMessage,
-  MobileAlertMessage
+  MobileAlertMessage,
+  PreviewImage
 };
 
 export default infraVueUI;
