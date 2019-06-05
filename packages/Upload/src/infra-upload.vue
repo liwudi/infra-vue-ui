@@ -1,13 +1,13 @@
 <template>
-  <div class="box">
-    <input :accept="accept" ref="input" @change="fileChange" type="file" hidden>
+  <div ref="dom" class="box">
+    <input style="overflow: hidden;" :accept="accept" ref="input" @change="fileChange" type="file" hidden>
     <!--居左展示的部分-->
     <div class="upload-box" v-if="previewPosition === 'left'">
-      <div :key="item" v-for="item in perviewList" class="item">
+      <div :key="item" v-for="item in perviewList" class="item" v-bind:style="{height: height}">
         <img @click="previewEvent(item)" class="itemImage" :src="item" alt="">
       </div>
       <!--相机上传的图标-->
-      <div @click="clickEvent" class="item">
+      <div @click="clickEvent" class="item" v-bind:style="{height: height}">
         <div class="upload center relative">
           <img :src="Image" alt="图片">
           <p class="p">{{fileList.length}}/{{limit}}</p>
@@ -16,14 +16,14 @@
     </div>
     <div class="upload-box" v-if="previewPosition === 'right'">
       <!--相机上传的图标-->
-      <div @click="clickEvent" class="item">
+      <div @click="clickEvent" class="item" v-bind:style="{height: height}">
         <div class="upload center relative">
           <img :src="Image" alt="图片">
           <p class="p">{{fileList.length}}/{{limit}}</p>
         </div>
       </div>
       <!--居右展示的部分-->
-      <div :key="item" v-for="item in perviewList" class="item">
+      <div :key="item" v-for="item in perviewList" class="item" v-bind:style="{height: height}">
         <img @click="previewEvent(item)" class="itemImage" :src="item" alt="">
       </div>
     </div>
@@ -36,6 +36,7 @@
    */
   import Image from './Group.png';
   import PreviewImage from '../../PreviewImage/index'; // 用于大图浏览图片的组件
+  import DomSize from 'wd-domsize-monitor';
   export default {
     name: 'infra-upload',
     props: {
@@ -59,10 +60,22 @@
       return {
         fileList: [],
         perviewList: [],
+        height: null,
         Image
       };
     },
+    mounted () {
+      this.callback();
+      DomSize.bind(this.$refs.dom, this.callback);
+    },
+    beforeDestroy () {
+      DomSize.remove(this.$refs.dom);
+    },
     methods: {
+      callback () {
+        let style = window.getComputedStyle(this.$refs.dom, null);
+        this.height = parseInt(style.width) / 3 + 'px';
+      },
       previewEvent (item) {
         if (this.previewBgColor) {
           PreviewImage({
