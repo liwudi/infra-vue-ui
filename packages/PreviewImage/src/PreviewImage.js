@@ -11,7 +11,7 @@ function PreviewImage (options) {
   let instance = new MessageConstructor({
     data: options
   });
-  instance.id = 'alert__' + seed++;
+  instance.id = 'previewImage__' + seed++;
   instance.vm = instance.$mount();
   document.body.appendChild(instance.vm.$el);
   return instance.vm;

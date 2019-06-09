@@ -7,8 +7,10 @@ import Select from '../packages/Select/index';
 import MultipleSelectionInput from '../packages/MultipleSelectionInput/index';
 import Upload from '../packages/Upload/index';
 
-// 消息提示
+// 消息提示(以后可能取消)
 import AlertMessage from '../packages/Alert/index';
+// 消息提示-PC
+import MessageBox from '../packages/MessageBox/index';
 // 消息提示-手机
 import MobileAlertMessage from '../packages/MobileAlert/index';
 // 图片预览
@@ -29,6 +31,8 @@ const install = function (Vue, opts = {}) {
   Vue.prototype.$alertMessage = AlertMessage;
   Vue.prototype.$mobileAlertMessage = MobileAlertMessage;
   Vue.prototype.$previewImage = PreviewImage;
+  Vue.prototype.$alert = MessageBox.alert;
+  Vue.prototype.$confirm = MessageBox.confirm;
 };
 
 const infraVueUI = {
@@ -39,9 +43,10 @@ const infraVueUI = {
   Select,
   MultipleSelectionInput,
   Upload,
+  PreviewImage,
   AlertMessage,
   MobileAlertMessage,
-  PreviewImage
+  MessageBox
 };
 
 export default infraVueUI;

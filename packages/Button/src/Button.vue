@@ -1,6 +1,7 @@
 <template>
   <button
     class="btn btn-warning"
+    v-bind:class="{'btn-default': type === 'default'}"
     @click="handleClick"
     :disabled="disabled"
     :style="{background: disabled ? '#ccc' : ''}"
@@ -16,6 +17,11 @@
       disabled: {
         type: Boolean,
         default: false
+      },
+      type: {
+        validator: function (val) {
+          return ['default'].indexOf(val) !== -1;
+        }
       }
     },
     methods: {
@@ -40,8 +46,12 @@
     background: #F5A623;
     color: #ffffff;
   }
+  .btn-default {
+    color: #444;
+    background: #e9e9e9;
+  }
 
-  .btn-warning:active {
+  .btn:active {
     opacity: 0.9;
   }
 </style>
