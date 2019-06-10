@@ -1,8 +1,8 @@
 <template>
-  <div class="my-modal-bg center">
-    <div class="flexBox flexCol my-modal">
-      <div class="flex1 center">{{message || '消息提示文本'}}</div>
-      <div @click="click" class="flex1 center btn">我知道了</div>
+  <div class="infra-my-modal-bg infra-center">
+    <div class="infra-flexBox infra-flexCol infra-my-modal">
+      <div class="infra-flex1 infra-center">{{message || '消息提示文本'}}</div>
+      <div @click="click" class="infra-flex1 infra-center infra-btn">我知道了</div>
     </div>
   </div>
 </template>
@@ -29,7 +29,7 @@
 </script>
 
 <style scoped>
-  .my-modal-bg {
+  .infra-my-modal-bg {
     position: fixed;
     left: 0;
     top: 0;
@@ -38,7 +38,7 @@
     background-color: rgba(255, 255, 255, 0.9);
   }
 
-  .my-modal {
+  .infra-my-modal {
     width: 300px;
     height: 120px;
     border-radius: 5px;
@@ -47,25 +47,25 @@
     font-size: 16px;
   }
 
-  .btn {
+  .infra-btn {
     border-top: 1px solid #cccccc;
     color: #3c78ff;
     cursor: pointer;
   }
 
-  .flexBox {
+  .infra-flexBox {
     display: flex;
   }
 
-  .flexCol {
+  .infra-flexCol {
     flex-direction: column;
   }
 
-  .flex1 {
+  .infra-flex1 {
     flex: 1;
   }
 
-  .center {
+  .infra-center {
     display: flex;
     align-items: center;
     justify-content: center;

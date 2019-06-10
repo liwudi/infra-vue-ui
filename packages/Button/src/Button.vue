@@ -1,7 +1,7 @@
 <template>
   <button
-    class="btn btn-warning"
-    v-bind:class="{'btn-default': type === 'default'}"
+    class="infra-btn infra-btn-warning"
+    v-bind:class="{'infra-btn-default': type === 'default', 'infra-btn-danger': type === 'danger', 'infra-btn-success': type === 'success'}"
     @click="handleClick"
     :disabled="disabled"
     :style="{background: disabled ? '#ccc' : ''}"
@@ -20,7 +20,7 @@
       },
       type: {
         validator: function (val) {
-          return ['default'].indexOf(val) !== -1;
+          return ['default', 'danger', 'success'].indexOf(val) !== -1;
         }
       }
     },
@@ -33,7 +33,7 @@
 </script>
 
 <style scoped>
-  .btn {
+  .infra-btn {
     padding: 10px 20px;
     display: inline-block;
     overflow: hidden;
@@ -42,16 +42,24 @@
     outline: none;
   }
 
-  .btn-warning {
+  .infra-btn-warning {
     background: #F5A623;
     color: #ffffff;
   }
-  .btn-default {
+  .infra-btn-default {
     color: #444;
     background: #e9e9e9;
   }
+  .infra-btn-success {
+    color: #ffffff;
+    background: #67C23A;
+  }
+  .infra-btn-danger {
+    color: #ffffff;
+    background: #F56C6C;
+  }
 
-  .btn:active {
+  .infra-btn:active {
     opacity: 0.9;
   }
 </style>

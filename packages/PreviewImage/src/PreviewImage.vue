@@ -1,6 +1,6 @@
 <template>
-  <div class="my-modal-bg center" v-bind:style="{backgroundColor: backgroundColor}">
-    <img @click="click" class="previewImage" :src="imageSrc" alt="背景图">
+  <div class="infra-my-modal-bg infra-center" v-bind:style="{backgroundColor: backgroundColor}">
+    <img @click="click" class="infra-previewImage" :src="imageSrc" alt="背景图">
   </div>
 </template>
 
@@ -23,7 +23,7 @@
 </script>
 
 <style scoped>
-  .my-modal-bg {
+  .infra-my-modal-bg {
     position: fixed;
     left: 0;
     top: 0;
@@ -32,12 +32,12 @@
     background-color: rgba(255, 255, 255, 0.9);
   }
 
-  .center {
+  .infra-center {
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .previewImage {
+  .infra-previewImage {
     max-width: 100%;
     max-height: 100%;
   }

@@ -1,19 +1,19 @@
 <template>
-  <div class="userinfo-item">
-    <img v-if="icon" class="iconsize" :src="icon" alt="手机">
-    <div @click.prevent="clickEvent" :style="{ marginLeft: icon ? '40px' : '0px' }" class="input-box">
+  <div class="infra-userinfo-item">
+    <img v-if="icon" class="infra-iconsize" :src="icon" alt="手机">
+    <div @click.prevent="clickEvent" :style="{ marginLeft: icon ? '40px' : '0px' }" class="infra-input-box">
       <input
         :value="currentValue"
         disabled
-        class="input"
+        class="infra-input"
         :placeholder="placeholder"
         type="text"
         :style="{borderLeft: icon ? '1px solid #e6e6e6' : 'none'}"
       >
     </div>
-    <ul v-if="isShowList" class="list">
-      <li v-for="item in list" :key="item" class="list-item" @click="choiceEvent(item)">{{item}}</li>
-      <li v-if="!list.length" class="list-item">无数据</li>
+    <ul v-if="isShowList" class="infra-list">
+      <li v-for="item in list" :key="item" class="infra-list-item" @click="choiceEvent(item)">{{item}}</li>
+      <li v-if="!list.length" class="infra-list-item">无数据</li>
     </ul>
   </div>
 </template>
@@ -87,7 +87,7 @@
 </script>
 
 <style scoped>
-  .userinfo-item {
+  .infra-userinfo-item {
     height: 40px;
     width: 290px;
     display: inline-block;
@@ -95,11 +95,11 @@
     border-radius: 5px;
   }
 
-  .input-box {
+  .infra-input-box {
     margin-left: 40px;
   }
 
-  .input {
+  .infra-input {
     box-sizing: border-box;
     outline: none;
     border-left: 1px solid #e6e6e6;
@@ -113,13 +113,13 @@
     display: inline-block;
   }
 
-  .iconsize {
+  .infra-iconsize {
     width: 40px;
     height: 41px;
     float: left;
   }
 
-  .list {
+  .infra-list {
     background: #fefefe;
     position: absolute;
     left: 0;
@@ -135,7 +135,7 @@
     padding: 0;
   }
 
-  .list-item {
+  .infra-list-item {
     text-align: center;
     line-height: 28px;
     cursor: pointer;
@@ -143,7 +143,7 @@
     padding: 0;
   }
 
-  .list-item:hover {
+  .infra-list-item:hover {
     background-color: #e6e6e6;
   }
 </style>

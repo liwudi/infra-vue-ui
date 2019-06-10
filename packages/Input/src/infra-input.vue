@@ -1,14 +1,14 @@
 <template>
-  <div class="pc-userinfo-item">
-    <img v-if="icon" class="pc-iconsize" :src="icon" alt="手机">
-    <div :style="{ marginLeft: icon ? '40px' : '0px' }" class="pc-input-box">
+  <div class="infra-pc-userinfo-item">
+    <img v-if="icon" class="infra-pc-iconsize" :src="icon" alt="手机">
+    <div :style="{ marginLeft: icon ? '40px' : '0px' }" class="infra-pc-input-box">
       <input
         :disabled="disabled"
         :value="value"
         :style="{borderLeft: icon ? '1px solid #e6e6e6' : 'none'}"
         @input="inputEvent"
         @blur="blurEvent"
-        class="pc-input"
+        class="infra-pc-input"
         :placeholder="placeholder"
         type="text"
       >
@@ -43,7 +43,7 @@
 </script>
 
 <style scoped>
-  .pc-userinfo-item {
+  .infra-pc-userinfo-item {
     height: 40px;
     width: 290px;
     display: inline-block;
@@ -52,12 +52,12 @@
     overflow: hidden;
   }
 
-  .pc-input-box {
+  .infra-pc-input-box {
     margin-left: 40px;
     height: 100%;
   }
 
-  .pc-input {
+  .infra-pc-input {
     outline: none;
     border-left: 1px solid #e6e6e6;
     border-bottom: 0;
@@ -70,7 +70,7 @@
     display: inline-block;
   }
 
-  .pc-iconsize {
+  .infra-pc-iconsize {
     width: 40px;
     height: 41px;
     float: left;

@@ -1,8 +1,8 @@
 <template>
-  <div class="multipleSelectionContainer">
-    <div class="inputBox">
+  <div class="infra-multipleSelectionContainer">
+    <div class="infra-inputBox">
       <input
-        class="inputStyle"
+        class="infra-inputStyle"
         v-model="value"
         ref="input"
         @input="inputEvent"
@@ -11,20 +11,20 @@
         type="text"
         placeholder="请选择（支持多选）"
       >
-      <div @click="panelEvent" class="sourceList" v-show="isShowList" style="z-index:9;">
+      <div @click="panelEvent" class="infra-sourceList" v-show="isShowList" style="z-index:9;">
         <!--全选功能-->
-        <div class="selectItem">
+        <div class="infra-selectItem">
           <input :checked="isAllChoice" type="checkbox" @change="allChoiceChange"/>
           <span>全部选择</span>
         </div>
-        <div class="selectItem" v-for="source in filterList" :key="source.id">
+        <div class="infra-selectItem" v-for="source in filterList" :key="source.id">
           <input :checked="source.isChoice" type="checkbox" @change="changeItem(source.id)"/>
           <span>{{source.name}}</span>
         </div>
       </div>
     </div>
-    <div class="resultContainer">
-      <div :key="result.id" class="result" v-for="result in choicedList">{{result.name}}<span @click="deleteEvent(result)" class="delete-style"><span class="deleteSpan1"></span><span class="deleteSpan2"></span></span></div>
+    <div class="infra-resultContainer">
+      <div :key="result.id" class="infra-result" v-for="result in choicedList">{{result.name}}<span @click="deleteEvent(result)" class="infra-delete-style"><span class="infra-deleteSpan1"></span><span class="infra-deleteSpan2"></span></span></div>
     </div>
   </div>
 </template>
@@ -196,18 +196,18 @@
 </script>
 
 <style scoped>
-  .multipleSelectionContainer {
+  .infra-multipleSelectionContainer {
     width: 250px;
     height: auto;
     display: inline-block;
     text-align: left;
   }
-  .inputBox {
+  .infra-inputBox {
     width: 100%;
     height: 35px;
     position: relative;
   }
-  .sourceList {
+  .infra-sourceList {
     position: absolute;
     left: 0;
     top: 35px;
@@ -219,11 +219,11 @@
     border: 1px solid #d2d6de;
     box-sizing: border-box;
   }
-  .selectItem {
+  .infra-selectItem {
     border-bottom: 1px solid #d2d6de;
     padding-left: 5px;
   }
-  .inputStyle {
+  .infra-inputStyle {
     width: 100%;
     height: 35px;
     border: 1px solid #d2d6de;
@@ -234,16 +234,16 @@
     outline: none;
     background: #f2f2f2;
   }
-  .inputStyle:focus {
+  .infra-inputStyle:focus {
     border: 1px solid #6392fe;
   }
-  .resultContainer {
+  .infra-resultContainer {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
   }
-  .result {
+  .infra-result {
     border: 1px solid #d2d6de;
     padding: 2px;
     font-size: 14px;
@@ -253,7 +253,7 @@
     display: flex;
     align-items: center;
   }
-  .delete-style {
+  .infra-delete-style {
     display: inline-block;
     margin-left: 5px;
     width: 18px;
@@ -263,7 +263,7 @@
     border-radius: 50%;
     position: relative;
   }
-  .deleteSpan1 {
+  .infra-deleteSpan1 {
     display: inline-block;
     width: 10px;
     height: 2px;
@@ -273,7 +273,7 @@
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
   }
-  .deleteSpan2 {
+  .infra-deleteSpan2 {
     display: inline-block;
     width: 10px;
     height: 2px;

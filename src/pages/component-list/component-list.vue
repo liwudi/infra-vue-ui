@@ -1,6 +1,6 @@
 <template>
     <div>
-      <InfraButton style="float: left">按钮</InfraButton>
+      <InfraButton type="danger" style="float: left">按钮</InfraButton>
       <InfraInput style="float: left" placeholder="请输入内容"></InfraInput>
       <InfraSelect placeholder="请选择城市"></InfraSelect>
       <InfraButton @click="alertEvent" style="float: left">触发Alert</InfraButton>

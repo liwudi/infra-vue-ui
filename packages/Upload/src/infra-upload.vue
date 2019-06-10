@@ -1,30 +1,30 @@
 <template>
-  <div ref="dom" class="box">
+  <div ref="dom" class="infra-box">
     <input style="overflow: hidden;" :accept="accept" ref="input" @change="fileChange" type="file" hidden>
     <!--居左展示的部分-->
     <div class="upload-box" v-if="previewPosition === 'left'">
-      <div :key="item" v-for="item in perviewList" class="item" v-bind:style="{height: height}">
-        <img @click="previewEvent(item)" class="itemImage" :src="item" alt="">
+      <div :key="item" v-for="item in perviewList" class="infra-item" v-bind:style="{height: height}">
+        <img @click="previewEvent(item)" class="infra-itemImage" :src="item" alt="">
       </div>
       <!--相机上传的图标-->
-      <div @click="clickEvent" class="item" v-bind:style="{height: height}">
-        <div class="upload center relative">
+      <div @click="clickEvent" class="infra-item" v-bind:style="{height: height}">
+        <div class="infra-upload infra-center infra-relative">
           <img :src="Image" alt="图片">
-          <p class="p">{{fileList.length}}/{{limit}}</p>
+          <p class="infra-p">{{fileList.length}}/{{limit}}</p>
         </div>
       </div>
     </div>
     <div class="upload-box" v-if="previewPosition === 'right'">
       <!--相机上传的图标-->
-      <div @click="clickEvent" class="item" v-bind:style="{height: height}">
-        <div class="upload center relative">
+      <div @click="clickEvent" class="infra-item" v-bind:style="{height: height}">
+        <div class="infra-upload infra-center infra-relative">
           <img :src="Image" alt="图片">
-          <p class="p">{{fileList.length}}/{{limit}}</p>
+          <p class="infra-p">{{fileList.length}}/{{limit}}</p>
         </div>
       </div>
       <!--居右展示的部分-->
-      <div :key="item" v-for="item in perviewList" class="item" v-bind:style="{height: height}">
-        <img @click="previewEvent(item)" class="itemImage" :src="item" alt="">
+      <div :key="item" v-for="item in perviewList" class="infra-item" v-bind:style="{height: height}">
+        <img @click="previewEvent(item)" class="infra-itemImage" :src="item" alt="">
       </div>
     </div>
   </div>
@@ -109,7 +109,7 @@
 </script>
 
 <style scoped>
-  .box {
+  .infra-box {
     width: 100%;
   }
   .upload-box {
@@ -118,24 +118,24 @@
     flex-direction: row;
     justify-content: flex-start;
   }
-  .item {
+  .infra-item {
     width: 33.3%;
     height: 100px;
     padding: 3px;
     box-sizing: border-box;
   }
-  .itemImage {
+  .infra-itemImage {
     width: 100%;
     height: 100%;
   }
-  .upload {
+  .infra-upload {
     background-color: #eee;
     height: 100%;
   }
-  .relative {
+  .infra-relative {
     position: relative;
   }
-  .p {
+  .infra-p {
     margin: 0;
     padding: 0;
     position: absolute;
@@ -145,7 +145,7 @@
     font-size: 12px;
     color: #939DA6;
   }
-  .center {
+  .infra-center {
     display: flex;
     align-items: center;
     justify-content: center;
