@@ -3,14 +3,15 @@
     <input style="overflow: hidden;" :accept="accept" ref="input" @change="fileChange" type="file" hidden>
     <!--居左展示的部分-->
     <div class="upload-box" v-if="previewPosition === 'left'">
-      <div :key="item" v-for="item in perviewList" class="infra-item" v-bind:style="{height: height}">
-        <img @click="previewEvent(item)" class="infra-itemImage" :src="item" alt="">
+      <div :key="item.previewSrc" v-for="item in list" class="infra-item" v-bind:style="{height: height}">
+        <img @click="previewEvent(item.previewSrc)" class="infra-itemImage" :src="item.previewSrc" alt="">
+        <i @click="closeEvent(item)" class="iconfont iconclose-circle infra-close"></i>
       </div>
       <!--相机上传的图标-->
       <div @click="clickEvent" class="infra-item" v-bind:style="{height: height}">
         <div class="infra-upload infra-center infra-relative">
           <img :src="Image" alt="图片">
-          <p class="infra-p">{{fileList.length}}/{{limit}}</p>
+          <p class="infra-p">{{list.length}}/{{limit}}</p>
         </div>
       </div>
     </div>
@@ -19,12 +20,13 @@
       <div @click="clickEvent" class="infra-item" v-bind:style="{height: height}">
         <div class="infra-upload infra-center infra-relative">
           <img :src="Image" alt="图片">
-          <p class="infra-p">{{fileList.length}}/{{limit}}</p>
+          <p class="infra-p">{{list.length}}/{{limit}}</p>
         </div>
       </div>
       <!--居右展示的部分-->
-      <div :key="item" v-for="item in perviewList" class="infra-item" v-bind:style="{height: height}">
-        <img @click="previewEvent(item)" class="infra-itemImage" :src="item" alt="">
+      <div :key="item.previewSrc" v-for="item in list" class="infra-item" v-bind:style="{height: height}">
+        <img @click="previewEvent(item.previewSrc)" class="infra-itemImage" :src="item.previewSrc" alt="">
+        <i @click="closeEvent(item)" class="iconfont iconclose-circle infra-close"></i>
       </div>
     </div>
   </div>
@@ -58,11 +60,20 @@
     },
     data: function () {
       return {
-        fileList: [],
-        perviewList: [],
+        list: [],
         height: null,
         Image
       };
+    },
+    computed: {
+      fileList: function () {
+        return this.list.map(item => item.file);
+      }
+    },
+    watch: {
+      fileList: function () {
+        this.$emit('change', [...this.fileList]);
+      }
     },
     mounted () {
       this.callback();
@@ -86,20 +97,25 @@
           PreviewImage.info(item);
         }
       },
+      closeEvent (item) {
+        this.list = this.list.filter(obj => {
+          return obj.previewSrc !== item.previewSrc;
+        });
+      },
       fileChange (e) {
         let files = e.target.files;
-        let srcs = [];
+        let list = [];
         for (let i = 0; i < files.length; i++) {
           let src = URL.createObjectURL(files[i]);
-          srcs.push(src);
+          list.push({
+            file: files[i],
+            previewSrc: src
+          });
         }
-        this.fileList = [...this.fileList, ...files];
-        this.perviewList = [...this.perviewList, ...srcs];
-        let emitData = [...this.fileList];
-        this.$emit('change', emitData);
+        this.list = [...this.list, ...list];
       },
       clickEvent () {
-        if (this.limit <= this.fileList.length) {
+        if (this.limit <= this.list.length) {
           return;
         }
         this.$refs.input.click();
@@ -123,6 +139,7 @@
     height: 100px;
     padding: 3px;
     box-sizing: border-box;
+    position: relative;
   }
   .infra-itemImage {
     width: 100%;
@@ -149,5 +166,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .infra-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    color: #fff;
   }
 </style>
