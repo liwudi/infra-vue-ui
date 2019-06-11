@@ -10,7 +10,7 @@
       <!--相机上传的图标-->
       <div @click="clickEvent" class="infra-item" v-bind:style="{height: height}">
         <div class="infra-upload infra-center infra-relative">
-          <img :src="Image" alt="图片">
+          <i class="iconfont iconcamera infra-camera"></i>
           <p class="infra-p">{{list.length}}/{{limit}}</p>
         </div>
       </div>
@@ -19,7 +19,7 @@
       <!--相机上传的图标-->
       <div @click="clickEvent" class="infra-item" v-bind:style="{height: height}">
         <div class="infra-upload infra-center infra-relative">
-          <img :src="Image" alt="图片">
+          <i class="iconfont iconcamera infra-camera"></i>
           <p class="infra-p">{{list.length}}/{{limit}}</p>
         </div>
       </div>
@@ -36,7 +36,6 @@
   /**
    * 向上暴露主要的接口，change事件。
    */
-  import Image from './Group.png';
   import PreviewImage from '../../PreviewImage/index'; // 用于大图浏览图片的组件
   import DomSize from 'wd-domsize-monitor';
   export default {
@@ -61,8 +60,7 @@
     data: function () {
       return {
         list: [],
-        height: null,
-        Image
+        height: null
       };
     },
     computed: {
@@ -173,5 +171,9 @@
     top: 10px;
     font-size: 20px;
     color: #fff;
+  }
+  .infra-camera {
+    font-size: 70px;
+    color: #999;
   }
 </style>
