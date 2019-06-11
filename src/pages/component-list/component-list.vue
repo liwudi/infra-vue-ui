@@ -1,18 +1,28 @@
 <template>
     <div>
-      <InfraButton type="danger" style="float: left">按钮</InfraButton>
-      <InfraInput style="float: left" placeholder="请输入内容"></InfraInput>
-      <InfraSelect placeholder="请选择城市"></InfraSelect>
-      <InfraButton @click="alertEvent" style="float: left">触发Alert</InfraButton>
-      <InfraButton @click="alertMEvent" style="float: left">触发MobileAlert</InfraButton>
-      <InfraButton @click="messageBoxEvent" style="float: left">触发MessageBox</InfraButton>
-      <div>
+      <div style="display: block;overflow: hidden;">
+        <InfraButton type="default" style="float: left">default按钮</InfraButton>
+        <InfraButton type="success" style="float: left">success按钮</InfraButton>
+        <InfraButton type="danger" style="float: left">danger按钮</InfraButton>
+      </div>
+      <div style="margin-top: 30px">
+        <InfraInput style="float: left" placeholder="请输入内容"></InfraInput>
+        <InfraSelect placeholder="请选择城市"></InfraSelect>
+      </div>
+      <div style="margin-top: 30px; overflow: hidden;">
+        <InfraButton @click="alertEvent" style="float: left">触发Alert</InfraButton>
+        <InfraButton @click="alertMEvent" style="float: left">触发MobileAlert</InfraButton>
+        <InfraButton @click="messageBoxEvent" style="float: left">触发MessageBox</InfraButton>
+      </div>
+      <div style="margin-top: 30px;">
         <infra-multiple-selection-input
-          style="margin-top: 30px"
           :dataSource="dataSource"
           :checkedList="checkedList"
           @change="changeEvent"
         ></infra-multiple-selection-input>
+      </div>
+      <div style="margin-top: 100px;">
+        <i class="iconfont iconclose"></i>
       </div>
     </div>
 </template>
@@ -49,11 +59,12 @@ export default {
     },
     messageBoxEvent: function () {
       // MessageBox.confirm('我是中国人');
+
       MessageBox({
         title: 'title提示',
         content: '<div>content</div>',
         type: 'confirm',
-        dangerouslyUseHTMLString: true,
+        dangerouslyUseHTMLString: false,
         onConfirm: function () {
           AlertMessage.info('我点击了确认按钮');
         },

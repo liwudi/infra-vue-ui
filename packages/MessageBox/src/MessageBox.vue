@@ -3,6 +3,7 @@
     <div class="infra-flexBox infra-flexCol infra-my-modal">
       <div class="infra-modal-header">
         <h4 class="infra-modal-title">{{title}}</h4>
+        <i @click="close" class="iconfont iconclose infra-icon"></i>
       </div>
       <div class="infra-modal-body">
         <p v-if="!dangerouslyUseHTMLString">{{content}}</p>
@@ -83,6 +84,7 @@
     padding: 15px;
     border-bottom: 1px solid #e5e5e5;
     box-sizing: border-box;
+    position: relative;
   }
   .infra-modal-title {
     padding: 0;
@@ -122,5 +124,12 @@
   .infra-positionConfirm {
     position: absolute;
     right: 15px;
+  }
+  .infra-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999999;
   }
 </style>

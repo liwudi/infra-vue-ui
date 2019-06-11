@@ -9,7 +9,11 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'infra.common.js'
+    publicPath: '/dist/',
+    filename: 'infra.common.js',
+    library: 'infra-vue-ui',
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
   plugins: [
     // make sure to include the plugin for the magic
@@ -22,7 +26,8 @@ module.exports = {
         use: [
           'vue-style-loader',
           'css-loader'
-        ]
+        ],
+        exclude: /dist/
       }, {
         test: /\.vue$/,
         loader: 'vue-loader'

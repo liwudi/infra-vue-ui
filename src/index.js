@@ -6,8 +6,6 @@ import Input from '../packages/Input/index';
 import Select from '../packages/Select/index';
 import MultipleSelectionInput from '../packages/MultipleSelectionInput/index';
 import Upload from '../packages/Upload/index';
-// 引入字体图标
-import './iconfont/iconfont.css';
 
 // 消息提示(以后可能取消)
 import AlertMessage from '../packages/Alert/index';
