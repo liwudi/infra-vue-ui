@@ -1,9 +1,9 @@
 <template>
     <div>
       <div style="display: block;overflow: hidden;">
-        <InfraButton type="default" style="float: left">default按钮</InfraButton>
-        <InfraButton type="success" style="float: left">success按钮</InfraButton>
-        <InfraButton type="danger" style="float: left">danger按钮</InfraButton>
+        <InfraButton disabled type="default" style="float: left">default按钮</InfraButton>
+        <InfraButton disabled type="success" style="float: left">success按钮</InfraButton>
+        <InfraButton disabled type="danger" style="float: left">danger按钮</InfraButton>
       </div>
       <div style="margin-top: 30px">
         <InfraInput style="float: left" placeholder="请输入内容"></InfraInput>

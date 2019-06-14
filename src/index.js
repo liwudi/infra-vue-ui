@@ -6,6 +6,8 @@ import Input from '../packages/Input/index';
 import Select from '../packages/Select/index';
 import MultipleSelectionInput from '../packages/MultipleSelectionInput/index';
 import Upload from '../packages/Upload/index';
+import Table from '../packages/Table/index';
+import Pagination from '../packages/Pagination/index';
 
 // 消息提示(以后可能取消)
 import AlertMessage from '../packages/Alert/index';
@@ -21,7 +23,9 @@ const components = [
   Input,
   Select,
   MultipleSelectionInput,
-  Upload
+  Upload,
+  Table,
+  Pagination
 ];
 
 const install = function (Vue, opts = {}) {
@@ -43,6 +47,8 @@ const infraVueUI = {
   Select,
   MultipleSelectionInput,
   Upload,
+  Table,
+  Pagination,
   PreviewImage,
   AlertMessage,
   MobileAlertMessage,

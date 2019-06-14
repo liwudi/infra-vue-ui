@@ -7,50 +7,56 @@
     <!--&gt;</InfraUpload>-->
     <!--<InfraButton @click="clickEvent">点击预览</InfraButton>-->
     <div style="width: 100%; margin-top: 100px;margin-bottom: 200px;">
-      <InfraTable
+      <infra-table
         :table-data="tableData"
         @selection-change="selectionChange"
       >
-        <InfraTableCol
+        <infra-table-col
           label="ID"
           prop="id"
           type="selection"
-        ></InfraTableCol>
-        <InfraTableCol
+        ></infra-table-col>
+        <infra-table-col
           label="ID"
           prop="id"
-        ></InfraTableCol>
-        <InfraTableCol
+        ></infra-table-col>
+        <infra-table-col
           label="名单大类"
           prop="classification"
-        ></InfraTableCol>
-        <InfraTableCol
+        ></infra-table-col>
+        <infra-table-col
           label="名称"
           prop="valueDescription"
         >
-        </InfraTableCol>
-        <InfraTableCol
+        </infra-table-col>
+        <infra-table-col
           label="CODE"
           prop="valueCode"
         >
-        </InfraTableCol>
-        <InfraTableCol
+        </infra-table-col>
+        <infra-table-col
           label="数据类型"
           prop="dataType"
         >
-        </InfraTableCol>
-        <InfraTableCol
+        </infra-table-col>
+        <infra-table-col
           label="操作"
           prop="row"
         >
-        </InfraTableCol>
+        </infra-table-col>
         <template slot="row">
           <InfraButton type="default">编辑</InfraButton>
         </template>
         <template slot="save" slot-scope="slotProps">
           <InfraButton>{{slotProps.row.save}}</InfraButton>
         </template>
-      </InfraTable>
+      </infra-table>
+      <infra-pagination
+        :current-change="change1Event"
+        :current-page="1"
+        :total="78"
+        :page-size="20"
+      ></infra-pagination>
     </div>
   </div>
 </template>
@@ -60,7 +66,8 @@
   import InfraButton from '../../../packages/Button/index';
   import PreviewImage from '../../../packages/PreviewImage/index';
   import InfraTable from '../../../packages/Table/index';
-  import InfraTableCol from '../../../packages/TableCol/index';
+  import infraTableCol from '../../../packages/TableCol/index';
+  import InfraPagination from '../../../packages/Pagination/index';
   const data = {
     'code': 0,
     'data': {
@@ -281,7 +288,8 @@
       InfraUpload,
       InfraButton,
       InfraTable,
-      InfraTableCol
+      infraTableCol,
+      InfraPagination
     },
     data: function () {
       return {
@@ -296,6 +304,9 @@
     methods: {
       changeEvent (data) {
         console.log('fileList', data);
+      },
+      change1Event (data) {
+        console.log('val', data);
       },
       selectionChange (val) {
         console.log('选择的是', val);
