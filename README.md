@@ -73,6 +73,8 @@ export default {
 1，2019-05-19，修改了eslint的配置规则。添加了rules，'semi' :['error' , 'always'], 'indent': 0，修正MultipleSelectionInput组件。
 2，2019-05-26，对MultipleSelectionInput进行优化。
 3，2019-06-05，实现了上传组件InfraUpload，实现了PreviewImage组件。
+4，2019-06-14，实现了分页插件InfraPagination。
+5，2019-06-18，对InfraUpload兼容问题进行修复。icon适配小屏幕。
 
 
 

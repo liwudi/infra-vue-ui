@@ -10,7 +10,7 @@
       <!--相机上传的图标-->
       <div @click="clickEvent" class="infra-item" v-bind:style="{height: height}">
         <div class="infra-upload infra-center infra-relative">
-          <i class="iconfont iconcamera infra-camera"></i>
+          <i :style="{fontSize: fontSize}" class="iconfont iconcamera infra-camera"></i>
           <p class="infra-p">{{list.length}}/{{limit}}</p>
         </div>
       </div>
@@ -19,7 +19,7 @@
       <!--相机上传的图标-->
       <div @click="clickEvent" class="infra-item" v-bind:style="{height: height}">
         <div class="infra-upload infra-center infra-relative">
-          <i class="iconfont iconcamera infra-camera"></i>
+          <i :style="{fontSize: fontSize}" class="iconfont iconcamera infra-camera"></i>
           <p class="infra-p">{{list.length}}/{{limit}}</p>
         </div>
       </div>
@@ -60,7 +60,8 @@
     data: function () {
       return {
         list: [],
-        height: null
+        height: null,
+        fontSize: '70px'
       };
     },
     computed: {
@@ -84,6 +85,7 @@
       callback () {
         let style = window.getComputedStyle(this.$refs.dom, null);
         this.height = parseInt(style.width) / 3 + 'px';
+        this.fontSize = parseInt(style.width) / 6 + 'px';
       },
       previewEvent (item) {
         if (this.previewBgColor) {

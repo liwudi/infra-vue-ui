@@ -1,10 +1,10 @@
 <template>
   <div>
-    <!--<InfraUpload-->
-      <!--@change="changeEvent"-->
-      <!--preview-position="right"-->
-      <!--:limit="5"-->
-    <!--&gt;</InfraUpload>-->
+    <InfraUpload
+      @change="changeEvent"
+      preview-position="right"
+      :limit="5"
+    ></InfraUpload>
     <!--<InfraButton @click="clickEvent">点击预览</InfraButton>-->
     <div style="width: 100%; margin-top: 100px;margin-bottom: 200px;">
       <infra-table
