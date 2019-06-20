@@ -7,19 +7,20 @@
       </div>
       <div style="margin-top: 30px">
         <InfraInput style="float: left" placeholder="请输入内容"></InfraInput>
-        <InfraSelect placeholder="请选择城市"></InfraSelect>
+        <!--<InfraSelect placeholder="请选择城市"></InfraSelect>-->
       </div>
       <div style="margin-top: 30px; overflow: hidden;">
         <InfraButton @click="alertEvent" style="float: left">触发Alert</InfraButton>
         <InfraButton @click="alertMEvent" style="float: left">触发MobileAlert</InfraButton>
         <InfraButton @click="messageBoxEvent" style="float: left">触发MessageBox</InfraButton>
       </div>
-      <div style="margin-top: 30px;">
+      <div style="margin-top: 30px; text-align: left;">
         <infra-multiple-selection-input
           :dataSource="dataSource"
           :checkedList="checkedList"
           @change="changeEvent"
         ></infra-multiple-selection-input>
+        <infra-select></infra-select>
       </div>
       <div style="margin-top: 100px;">
         <i class="iconfont iconclose"></i>
@@ -30,7 +31,7 @@
 <script>
 import InfraButton from '../../../packages/Button/index';
 import InfraInput from '../../../packages/Input/index';
-import InfraSelect from '../../../packages/Select/index';
+import InfraSelect from '../../../packages/Select1/index';
 import AlertMessage from '../../../packages/Alert/index';
 import MobileAlertMessage from '../../../packages/MobileAlert/index';
 import MessageBox from '../../../packages/MessageBox/index';

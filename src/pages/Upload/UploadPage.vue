@@ -1,11 +1,12 @@
 <template>
   <div>
     <InfraUpload
+      ref="upload"
       @change="changeEvent"
       preview-position="right"
       :limit="5"
     ></InfraUpload>
-    <!--<InfraButton @click="clickEvent">点击预览</InfraButton>-->
+    <InfraButton @click="clickEvent">清空files</InfraButton>
     <div style="width: 100%; margin-top: 100px;margin-bottom: 200px;">
       <infra-table
         :table-data="tableData"
@@ -58,6 +59,9 @@
         :page-size="20"
       ></infra-pagination>
     </div>
+    <div style="margin-top: 50px; margin-bottom: 50px;">
+      <infra-select></infra-select>
+    </div>
   </div>
 </template>
 
@@ -68,6 +72,7 @@
   import InfraTable from '../../../packages/Table/index';
   import infraTableCol from '../../../packages/TableCol/index';
   import InfraPagination from '../../../packages/Pagination/index';
+  import InfraSelect from '../../../packages/Select1/index';
   const data = {
     'code': 0,
     'data': {
@@ -289,7 +294,8 @@
       InfraButton,
       InfraTable,
       infraTableCol,
-      InfraPagination
+      InfraPagination,
+      InfraSelect
     },
     data: function () {
       return {
@@ -299,7 +305,7 @@
     created () {
       setTimeout(() => {
         this.tableData = data.data.listSourceList.content;
-      }, 3000);
+      }, 300);
     },
     methods: {
       changeEvent (data) {
@@ -312,7 +318,8 @@
         console.log('选择的是', val);
       },
       clickEvent () {
-        PreviewImage.info('https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1586712349,1235793970&fm=27&gp=0.jpg');
+        this.$refs.upload.clearFiles();
+        // PreviewImage.info('https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1586712349,1235793970&fm=27&gp=0.jpg');
       }
     }
   };

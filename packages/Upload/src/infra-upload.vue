@@ -82,6 +82,9 @@
       DomSize.remove(this.$refs.dom);
     },
     methods: {
+      clearFiles () {
+        this.list = [];
+      },
       callback () {
         let style = window.getComputedStyle(this.$refs.dom, null);
         this.height = parseInt(style.width) / 3 + 'px';
