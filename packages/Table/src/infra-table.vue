@@ -1,17 +1,17 @@
 <template>
   <table :style="tableStyle" cellspacing="0" cellpadding="5" class="infra-table" border="1">
-    <tr class="infra-tr">
+    <tr class="infra-tr infra-title" :class="{'infra-mini': size === 'mini'}">
       <slot ref="slot"></slot>
     </tr>
-    <tr :key="index" v-for="(item, index) in checkedList" class="infra-tr">
-      <td :key="$index" v-for="(td, $index) in propsArray" class="infra-td">
+    <tr @click="itemEvent(item, index)" :key="index" v-for="(item, index) in checkedList" class="infra-tr" :class="{'infra-mini': size === 'mini', 'infra-checked': (currentIndex === index) && (itemClick)}">
+      <td :key="$index" v-for="(td, $index) in propsArray" class="infra-td" :class="{'infra-mini': size === 'mini'}">
         <slot v-if="!(td.type==='selection')" :name="td.prop" v-bind:row="item">
           {{item[td.prop]}}
         </slot>
         <input @click="choiceEvent(index)" :checked="item.isChecked" v-if="td.type==='selection'" type="checkbox">
       </td>
     </tr>
-    <tr v-if="!tableData.length" class="infra-tr infra-center">
+    <tr v-if="!tableData.length" class="infra-tr infra-center" :class="{'infra-mini': size === 'mini'}">
       <td class="infra-td infra-nodata" :colspan="propsArray.length">无数据</td>
     </tr>
   </table>
@@ -32,6 +32,7 @@
         tableStyle: {
           width: '600px'
         },
+        currentIndex: '',
         propsArray: [],
         checkedList: []
       };
@@ -40,6 +41,14 @@
       tableData: {
         type: Array,
         default: () => []
+      },
+      itemClick: Function,
+      size: {
+        type: String,
+        default: 'default',
+        validator: function (val) {
+          return ['default', 'mini'].indexOf(val) !== -1;
+        }
       }
     },
     watch: {
@@ -62,6 +71,10 @@
       DomSize.remove(this.$parent.$el);
     },
     methods: {
+      itemEvent (item, index) {
+        this.itemClick && this.itemClick({ ...item });
+        this.currentIndex = index;
+      },
       choiceEvent (index) {
         this.checkedList = this.checkedList.map((item, $index) => {
           if (index === $index) {
@@ -93,8 +106,18 @@
     width: 100%;
     height: auto;
     border: 1px solid #f4f4f4;
-    color: #333;
+    color: #606266;
     font-size: 14px;
+  }
+  infra-title {
+    color: #333;
+  }
+  .infra-tr {
+    height: 50px;
+  }
+  .infra-mini {
+    height: 40px !important;
+    padding: 0;
   }
   .infra-tr:hover {
     background-color: #eeeeee;
@@ -110,5 +133,8 @@
   }
   .infra-nodata {
     background-color: #f4f4f4
+  }
+  .infra-checked {
+    background-color: #eeeeee;
   }
 </style>

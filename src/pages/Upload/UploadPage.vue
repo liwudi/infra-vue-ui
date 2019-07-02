@@ -10,6 +10,7 @@
     <div style="width: 100%; margin-top: 100px;margin-bottom: 200px;">
       <infra-table
         :table-data="tableData"
+        :item-click="itemChange"
       >
         <infra-table-col
           label="ID"
@@ -303,6 +304,9 @@
       }, 300);
     },
     methods: {
+      itemChange (item) {
+        console.log(item);
+      },
       changeEvent (data) {
         console.log('fileList', data);
       },
