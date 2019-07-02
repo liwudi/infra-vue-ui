@@ -7,6 +7,7 @@ import Select from '../packages/Select/index';
 import MultipleSelectionInput from '../packages/MultipleSelectionInput/index';
 import Upload from '../packages/Upload/index';
 import Table from '../packages/Table/index';
+import TableCol from '../packages/TableCol/index';
 import Pagination from '../packages/Pagination/index';
 
 // 消息提示(以后可能取消)
@@ -25,6 +26,7 @@ const components = [
   MultipleSelectionInput,
   Upload,
   Table,
+  TableCol,
   Pagination
 ];
 

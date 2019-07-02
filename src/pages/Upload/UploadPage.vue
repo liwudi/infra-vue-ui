@@ -53,6 +53,7 @@
         </template>
       </infra-table>
       <infra-pagination
+        style="margin-top: 30px;"
         :current-change="change1Event"
         :current-page="1"
         :total="78"
