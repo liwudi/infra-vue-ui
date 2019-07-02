@@ -1,22 +1,16 @@
 <template>
   <div>
-    <InfraUpload
-      ref="upload"
-      @change="changeEvent"
-      preview-position="right"
-      :limit="5"
-    ></InfraUpload>
-    <InfraButton @click="clickEvent">清空files</InfraButton>
+    <!--<InfraUpload-->
+      <!--ref="upload"-->
+      <!--@change="changeEvent"-->
+      <!--preview-position="right"-->
+      <!--:limit="5"-->
+    <!--&gt;</InfraUpload>-->
+    <!--<InfraButton @click="clickEvent">清空files</InfraButton>-->
     <div style="width: 100%; margin-top: 100px;margin-bottom: 200px;">
       <infra-table
         :table-data="tableData"
-        @selection-change="selectionChange"
       >
-        <infra-table-col
-          label="ID"
-          prop="id"
-          type="selection"
-        ></infra-table-col>
         <infra-table-col
           label="ID"
           prop="id"
