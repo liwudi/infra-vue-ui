@@ -51,8 +51,11 @@
       PubSub.subscribe(Config.tableName, this.pubCallBack);
       DomSize.bind(this.$parent.$el, this.callback);
       this.callback();
-      console.log(this.$slots.default);
-      this.propsArray = this.$slots.default.map(item => item.componentOptions.propsData);
+      // this.propsArray = this.$slots.default.map(item => item.componentOptions.propsData);
+      // @todo:这里相当于打了一个布丁，目前不知道这个是为什么有些componentOptions为undefined。
+      this.propsArray = this.$slots.default.filter(item => {
+        return item.componentOptions;
+      }).map(item => item.componentOptions.propsData);
       this.checkedList = JSON.parse(JSON.stringify([...this.tableData]));
     },
     beforeDestroy () {
