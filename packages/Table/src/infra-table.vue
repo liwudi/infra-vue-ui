@@ -127,6 +127,8 @@
     border-left: 0;
     border-right: 0;
     border-top: 0;
+    padding: 0 20px;
+    text-align: center;
   }
   .infra-center {
     text-align: center;

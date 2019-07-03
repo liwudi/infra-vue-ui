@@ -38,5 +38,7 @@
     border-top: 0;
     border-left: 0;
     border-right: 0;
+    padding: 0 2px;
+    text-align: center;
   }
 </style>
