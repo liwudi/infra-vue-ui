@@ -14,8 +14,10 @@ import Pagination from '../packages/Pagination/index';
 import AlertMessage from '../packages/Alert/index';
 // 消息提示-PC
 import MessageBox from '../packages/MessageBox/index';
-// 消息提示-手机
+// 消息提示-手机（以后可能取消）
 import MobileAlertMessage from '../packages/MobileAlert/index';
+// 消息提示-手机
+import MobileMessageBox from '../packages/MobileMessageBox/index';
 // 图片预览
 import PreviewImage from '../packages/PreviewImage/index';
 
@@ -39,6 +41,8 @@ const install = function (Vue, opts = {}) {
   Vue.prototype.$previewImage = PreviewImage;
   Vue.prototype.$alert = MessageBox.alert;
   Vue.prototype.$confirm = MessageBox.confirm;
+  Vue.prototype.$mobileAlert = MobileMessageBox.alert;
+  Vue.prototype.$mobileConfirm = MobileMessageBox.confirm;
 };
 
 const infraVueUI = {
@@ -54,7 +58,8 @@ const infraVueUI = {
   PreviewImage,
   AlertMessage,
   MobileAlertMessage,
-  MessageBox
+  MessageBox,
+  MobileMessageBox
 };
 
 export default infraVueUI;

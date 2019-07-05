@@ -25,6 +25,9 @@
       <div style="margin-top: 100px;">
         <i class="iconfont iconclose"></i>
       </div>
+      <div>
+        <InfraButton @click="mobileMessageBoxEvent" style="float: left">触发MobileMessageBox</InfraButton>
+      </div>
     </div>
 </template>
 
@@ -35,6 +38,7 @@ import InfraSelect from '../../../packages/Select1/index';
 import AlertMessage from '../../../packages/Alert/index';
 import MobileAlertMessage from '../../../packages/MobileAlert/index';
 import MessageBox from '../../../packages/MessageBox/index';
+import MobileMessageBox from '../../../packages/MobileMessageBox/index';
 import InfraMultipleSelectionInput from '../../../packages/MultipleSelectionInput/index';
 import { dataSource } from './data';
 export default {
@@ -57,6 +61,23 @@ export default {
     },
     alertMEvent: function () {
       MobileAlertMessage.info('我触发alert提示框');
+    },
+    mobileMessageBoxEvent: function () {
+      MobileMessageBox({
+        content: '我触发alert提示框',
+        // type: 'confirm',
+        // type: 'alert',
+        dangerouslyUseHTMLString: false,
+        onConfirm: function () {
+          AlertMessage.info('我点击了确认按钮');
+        },
+        onCancel: function () {
+          AlertMessage.info('我点击了取消按钮');
+        },
+        onClose: function () {
+          AlertMessage.info('我点击了colse按钮');
+        }
+      });
     },
     messageBoxEvent: function () {
       // MessageBox.confirm('我是中国人');

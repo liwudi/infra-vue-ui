@@ -6,11 +6,14 @@ var webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 module.exports = {
   mode: 'production',
-  entry: './src/index.js',
+  entry: {
+    'infra.common': './src/index.js',
+    'infra.upload': './packages/Upload/index.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist/',
-    filename: 'infra.common.js',
+    filename: '[name].js',
     library: 'infra-vue-ui',
     libraryTarget: 'umd',
     umdNamedDefine: true
@@ -60,7 +63,7 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#none'
 }
 
 if (process.env.NODE_ENV === 'production') {
