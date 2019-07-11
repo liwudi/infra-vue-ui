@@ -6,7 +6,7 @@
 </template>
 <script>
   export default{
-    name: 'infra-input-field',
+    name: 'input-field',
     props: {
       value: [String, Number],
       placeholder: String,

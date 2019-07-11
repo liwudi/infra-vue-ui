@@ -1,10 +1,10 @@
 /**
  * Created by kaola on 2019-07-11.
  */
-import InfraInputField from './src/InputField';
+import InputField from './src/InputField';
 
-InfraInputField.install = function (Vue) {
-  Vue.component(InfraInputField.name, InfraInputField);
+InputField.install = function (Vue) {
+  Vue.component(InputField.name, InputField);
 };
 
-export default InfraInputField;
+export default InputField;

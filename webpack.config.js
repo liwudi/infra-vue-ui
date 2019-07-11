@@ -9,7 +9,7 @@ module.exports = {
   entry: {
     'infra.common': './src/index.js',
     'infra.upload': './packages/Upload/index.js',
-    'infra.input.field': './packages/InputField/index.js'
+    'input.field': './packages/InputField/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
