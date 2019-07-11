@@ -175,7 +175,7 @@
     right: 10px;
     top: 10px;
     font-size: 20px;
-    color: #fff;
+    color: gray;
   }
   .infra-camera {
     font-size: 70px;
