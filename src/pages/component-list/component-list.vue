@@ -20,7 +20,11 @@
           :checkedList="checkedList"
           @change="changeEvent"
         ></infra-multiple-selection-input>
-        <infra-select></infra-select>
+        <infra-select
+          v-model="selectData"
+          filterable
+          :data-source="['我回来', '感觉看到结果', '就考六级六级了', '斤斤计较斤斤计接口连接花开了家较']"
+        ></infra-select>
       </div>
       <div style="margin-top: 100px;">
         <i class="iconfont iconclose"></i>
@@ -28,13 +32,52 @@
       <div>
         <InfraButton @click="mobileMessageBoxEvent" style="float: left">触发MobileMessageBox</InfraButton>
       </div>
+      <div>
+        <InfraInput1 v-model="formData.name" />
+        <infra-select
+          v-model="selectData"
+          :filterable="true"
+          :data-source="['我回来', '感觉看到结果', '就考六级六级了', '斤斤计较斤斤计接口连接花开了家较']"
+        ></infra-select>
+        <InfraCheckBox v-model="femaleData">female</InfraCheckBox>
+      </div>
+      <!--关于form表单的实验-->
+      <div style="width: 100%;height: 500px;margin-top: 30px">
+        <InfraForm ref="infraForm" v-model="formData" :rules="rules" style="width: 300px">
+          <InfraFormItem prop="name">
+            <InfraInput1 v-model="formData.name" style="width: 100%" placeholder="姓名"></InfraInput1>
+          </InfraFormItem>
+          <InfraFormItem prop="city">
+            <infra-select
+              style="width: 100%"
+              v-model="formData.city"
+              filterable
+              :data-source="['我回来', '感觉看到结果', '就考六级六级了', '斤斤计较斤斤计接口连接花开了家较']"
+            ></infra-select>
+          </InfraFormItem>
+          <InfraFormItem prop="mobile">
+            <InfraInput1 v-model="formData.mobile" style="min-width: 150px;width: 60%" placeholder="验证码"></InfraInput1>
+            <InfraButton style="width: 40%;">获取验证码</InfraButton>
+          </InfraFormItem>
+          <InfraFormItem prop="code">
+            <InfraInput1 v-model="formData.code" style="width: 100%" placeholder="验证码"></InfraInput1>
+          </InfraFormItem>
+          <InfraFormItem>
+            <InfraButton @click="submitEvent" style="width: 100%">确认</InfraButton>
+          </InfraFormItem>
+        </InfraForm>
+      </div>
     </div>
 </template>
 
 <script>
 import InfraButton from '../../../packages/Button/index';
 import InfraInput from '../../../packages/Input/index';
+import InfraForm from '../../../packages/Form/index';
+import InfraFormItem from '../../../packages/FormItem/index';
+import InfraInput1 from '../../../packages/Input1/index';
 import InfraSelect from '../../../packages/Select1/index';
+import InfraCheckBox from '../../../packages/CheckBox/index';
 import AlertMessage from '../../../packages/Alert/index';
 import MobileAlertMessage from '../../../packages/MobileAlert/index';
 import MessageBox from '../../../packages/MessageBox/index';
@@ -46,16 +89,47 @@ export default {
   data: function () {
     return {
       dataSource: dataSource.data,
-      checkedList: []
+      checkedList: [],
+      selectData: '',
+      femaleData: false,
+      formData: {
+        name: '',
+        city: '北京',
+        mobile: 18910592191,
+        code: 3456
+      },
+      rules: {
+        name: [{ required: true, message: '姓名不为空', trigger: 'blur' }],
+        city: [{ required: true, message: '城市不为空', trigger: 'change' }],
+        mobile: [{ required: true, message: '手机不为空', trigger: 'blur' }],
+        code: [{ required: true, message: 'code不为空', trigger: 'blur' }]
+      }
     };
   },
   components: {
     InfraButton,
     InfraInput,
     InfraSelect,
-    InfraMultipleSelectionInput
+    InfraInput1,
+    InfraMultipleSelectionInput,
+    InfraCheckBox,
+    InfraForm,
+    InfraFormItem
+  },
+  watch: {
+    selectData: function (val) {
+      console.log('selectData', this.selectData);
+    },
+    formData: function () {
+      console.log('123456', this.formData.name);
+    }
   },
   methods: {
+    submitEvent: function () {
+      this.$refs.infraForm.validate(res => {
+        console.log(res);
+      });
+    },
     alertEvent: function () {
       AlertMessage.info('我触发alert提示框');
     },
@@ -107,5 +181,26 @@ export default {
 </script>
 
 <style scoped>
-
+ .form {
+   width: 300px;
+   padding: 30px 50px;
+   border: 1px solid #ccc;
+ }
+  .formItem-content {
+    display: flex;
+  }
+  .error {
+    height: 20px;
+    color: red;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+  }
+  .labelStyle {
+    width: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+  }
 </style>

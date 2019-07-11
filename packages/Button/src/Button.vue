@@ -4,15 +4,21 @@
     v-bind:class="{'infra-btn-default': type === 'default', 'infra-btn-danger': type === 'danger', 'infra-btn-success': type === 'success'}"
     @click="handleClick"
     :disabled="disabled"
-    :style="{background: disabled ? 'disabledBgColor' : '', cursor: disabled ? 'no-drop' : ''}"
+    :style="{background: disabled ? 'disabledBgColor' : '', cursor: disabled ? 'no-drop' : '', height: form.height}"
   >
     <slot></slot>
   </button>
 </template>
 
 <script>
+  import { form } from '../../packages.config';
   export default {
     name: 'infra-button',
+    data: function () {
+      return {
+        form: { ...form }
+      };
+    },
     props: {
       disabled: {
         type: Boolean,
@@ -38,6 +44,7 @@
 
 <style scoped>
   .infra-btn {
+    vertical-align: top;
     padding: 10px 20px;
     display: inline-block;
     overflow: hidden;
