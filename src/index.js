@@ -3,7 +3,9 @@
  */
 import Button from '../packages/Button/index';
 import Input from '../packages/Input/index';
+import Input1 from '../packages/Input1/index';
 import Select from '../packages/Select/index';
+import Select1 from '../packages/Select1/index';
 import MultipleSelectionInput from '../packages/MultipleSelectionInput/index';
 import Upload from '../packages/Upload/index';
 import Table from '../packages/Table/index';
@@ -27,7 +29,9 @@ import PreviewImage from '../packages/PreviewImage/index';
 const components = [
   Button,
   Input,
+  Input1,
   Select,
+  Select1,
   MultipleSelectionInput,
   Upload,
   Table,
