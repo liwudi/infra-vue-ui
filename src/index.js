@@ -9,6 +9,9 @@ import Upload from '../packages/Upload/index';
 import Table from '../packages/Table/index';
 import TableCol from '../packages/TableCol/index';
 import Pagination from '../packages/Pagination/index';
+import Form from '../packages/Form/index';
+import FormItem from '../packages/FormItem/index';
+import CheckBox from '../packages/CheckBox/index';
 
 // 消息提示(以后可能取消)
 import AlertMessage from '../packages/Alert/index';
@@ -29,7 +32,10 @@ const components = [
   Upload,
   Table,
   TableCol,
-  Pagination
+  Pagination,
+  Form,
+  FormItem,
+  CheckBox
 ];
 
 const install = function (Vue, opts = {}) {
@@ -55,6 +61,9 @@ const infraVueUI = {
   Upload,
   Table,
   Pagination,
+  Form,
+  FormItem,
+  CheckBox,
   PreviewImage,
   AlertMessage,
   MobileAlertMessage,
