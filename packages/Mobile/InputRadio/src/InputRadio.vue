@@ -1,113 +1,81 @@
 <template>
-  <div class="koala-input-box">
-    <label class="koala-label">{{label}}</label>
-    <div class="flex-box input-box">
-      <input style="min-width: 35px;" :value="value[0]" :placeholder="placeholder[0]" class="koala-input v-validate" v-bind="$props" @input="handleInput"/>
-      <span class="span">-</span>
-      <input style="min-width: 100px;" :value="value[1]" :placeholder="placeholder[1]" class="koala-input v-validate" v-bind="$props" @input="handleInputPhone"/>
-      <span class="span">-</span>
-      <input style="min-width: 30px;" :value="value[2]" :placeholder="placeholder[2]" class="koala-input v-validate" v-bind="$props" @input="handleInputExtension"/>
-    </div>
-  </div>
+<span style="float: right;">
+  <span class="radio-main" v-for="item in dataArr" :key="item.id">
+    <span class="radio-img" :class="{'checked':checked2===item.value}"></span>
+      <span class="radio-content">
+        <input type="radio"
+               :id="item.id"
+               :value="item.value"
+               v-model="checked2"
+               :disabled="item.disabled"
+               @change="$emit('change', checked2)" />
+        <label :for="item.id">{{item.label}}</label>
+      </span>
+  </span>
+</span>
 </template>
-
 <script>
   export default {
     name: 'input-radio',
-    data: function () {
-      return {
-        value1: this.value[0],
-        value2: this.value[1],
-        value3: this.value[2],
-      };
-    },
     props: {
-      value: Array,
-      placeholder: Array,
-      name: String,
-      id: String,
-      maxlength: Number,
-      minlength: Number,
-      readonly: Boolean,
-      disabled: Boolean,
-      type: {
-        type: String,
-        default: 'text'
+      dataArr: {
+        type: Array,
+        default () {
+          return [];
+        }
       },
-      rows: {
-        type: Number,
-        default: 2
-      },
-      autoComplete: {
-        type: String,
-        default: 'off'
-      },
-      validateEvent: {
-        type: Boolean,
-        default: true
-      },
-      suffixIcon: String,
-      label: String
+      checked:''
     },
-    methods: {
-      handleInput (event) {
-        const value = event.target.value
-        this.value1 = value;
-        let data = [this.value1, this.value2, this.value3];
-        this.$emit('input', data)
-      },
-      handleInputPhone (event) {
-        const value = event.target.value
-        this.value2 = value;
-        let data = [this.value1, this.value2, this.value3];
-        this.$emit('input', data)
-      },
-      handleInputExtension (event) {
-        const value = event.target.value
-        this.value3 = value;
-        let data = [this.value1, this.value2, this.value3];
-        this.$emit('input', data)
+    model: {
+      prop: 'checked',
+      event: 'change'
+    },
+    data () {
+      return {
+        checked2: ''
       }
     },
-    watch: {
-      value: function (val) {
-        this.value1 = val[0];
-        this.value2 = val[1];
-        this.value3 = val[2];
+    mounted: function () {
+      this.checked2 = this.checked;
+    },
+    watch:{
+      'checked':function(val){
+        this.checked2 = val;
       }
     }
   }
 </script>
-
-<style scoped lang="css">
-  .flex-box {
-    display: flex;
+<style>
+  .radio-main{
+    position: relative;
+    display:inline-block;
+    width:1.7rem;
+    line-height: 1.02rem;
+    text-align: left;
+    padding-left: 0.53rem;
   }
-  .koala-input-box {
-    overflow: hidden;
-    color: #465582;
+  .radio-img{
+    width:0.36rem;
+    height:0.36rem;
+    display:inline-block;
+    background:url('img/radioIcon.png');
+    background-size:cover;
   }
-  .koala-input-box .input-box {
-    width: 60%;
+  .radio-img.checked{
+    background-image:url('img/radioChecked.png');
+  }
+  .radio-content{
+    position: absolute;
+    right:0.3rem;
+    top:0;
     line-height: 0.9rem;
+    display:inline-block;
   }
-  .koala-input-box .span {
-    color: #465582;
-    padding-left: 5px;
-  }
-  .koala-input-box .koala-input {
-    height: 1.02rem;
-    padding-bottom: 0.12rem;
-    text-align: center;
-    border: 0;
-    outline: 0;
-    width: 30%;
-    flex: 1;
-    font-size: 0.3rem;
-    color: #465582;
-  }
-  .koala-input-box input::-webkit-input-placeholder {
-    font-size: 0.24rem;
-    color: #CDD4E1;
+  input[type="radio"]{
+    line-height: 1.02rem;
+    width: 0.58rem;
+    transform: scale(1.5,1.5);
+    -webkit-transform:scale(1.5,1.5); /* Safari 和 Chrome */
+    opacity: 0;
   }
 </style>
