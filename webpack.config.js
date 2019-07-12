@@ -10,7 +10,8 @@ module.exports = {
     'infra.common': './src/index.js',
     'infra.upload': './packages/Upload/index.js',
     'input.field': './packages/Mobile/InputField/index.js',
-    'input.phone': './packages/Mobile/InputPhone/index.js'
+    'input.phone': './packages/Mobile/InputPhone/index.js',
+    'input.radio': './packages/Mobile/InputRadio/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
