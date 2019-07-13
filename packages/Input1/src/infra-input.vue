@@ -9,7 +9,7 @@
     <input
       :disabled="disabled"
       :value="value"
-      :style="{border: '1px solid ' + form.borderColor,}"
+      :style="{border: '1px solid ' + form.borderColor, cursor: disabled ? 'no-drop' : 'default'}"
       @input="inputEvent"
       @blur="blurEvent"
       class="infra-pc-input"

@@ -108,6 +108,7 @@
     text-align: left;
     width: 100%;
     max-height: 250px;
+    overflow-y: auto;
     position: absolute;
     left: 0;
     top: 35px;

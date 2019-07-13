@@ -45,14 +45,14 @@
       <div style="width: 100%;height: 500px;margin-top: 30px">
         <InfraForm ref="infraForm" v-model="formData" :rules="rules" style="width: 300px">
           <InfraFormItem prop="name">
-            <InfraInput1 v-model="formData.name" style="width: 100%" placeholder="姓名"></InfraInput1>
+            <InfraInput1 :disabled="true" v-model="formData.name" style="width: 100%" placeholder="姓名"></InfraInput1>
           </InfraFormItem>
           <InfraFormItem prop="city">
             <infra-select
               style="width: 100%"
               v-model="formData.city"
               filterable
-              :data-source="['我回来', '感觉看到结果', '就考六级六级了', '斤斤计较斤斤计接口连接花开了家较']"
+              :data-source="arr"
             ></infra-select>
           </InfraFormItem>
           <InfraFormItem prop="mobile">
@@ -88,6 +88,7 @@ export default {
   name: 'component-list',
   data: function () {
     return {
+      arr: ['我回来', '感觉看到结果', '就考六级六级了', '斤斤计较斤斤计接口连接花开了家较斤斤计较斤斤计接口连接花开了家较', '我回来', '感觉看到结果', '就考六级六级了', '斤斤计较斤斤计接口连接花开了家较','我回来', '感觉看到结果', '就考六级六级了', '斤斤计较斤斤计接口连接花开了家较', '我回来', '感觉看到结果', '就考六级六级了', '斤斤计较斤斤计接口连接花开了家较', '我回来', '感觉看到结果', '就考六级六级了', '斤斤计较斤斤计接口连接花开了家较', '我回来', '感觉看到结果', '就考六级六级了', '斤斤计较斤斤计接口连接花开了家较'],
       dataSource: dataSource.data,
       checkedList: [],
       selectData: '',
