@@ -12,7 +12,8 @@ module.exports = {
     'input.field': './packages/Mobile/InputField/index.js',
     'input.phone': './packages/Mobile/InputPhone/index.js',
     'input.radio': './packages/Mobile/InputRadio/index.js',
-    'infra.textarea': './packages/Mobile/InfraTextarea/index.js'
+    'infra.textarea': './packages/Mobile/InfraTextarea/index.js',
+    'spicker': './packages/Mobile/Spicker/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

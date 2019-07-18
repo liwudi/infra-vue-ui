@@ -109,7 +109,7 @@
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
   .koala-input {
     overflow-x: auto;
     background-image: url('img/CombinedShape.png');
