@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="tpicker-item">
+  <div>
     <div class="koala-input-box">
       <label class="koala-label">{{label}}</label>
       <div ref="dom" class="koala-input select-input-right"></div>
@@ -227,7 +227,8 @@ label.koala-label{
   text-align: left;
   white-space: nowrap;
 }
-.tpicker-item{
-  overflow: hidden;
+.koala-input-box{
+  overflow:hidden;
+  width: 100%;
 }
 </style>

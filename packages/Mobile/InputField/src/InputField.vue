@@ -74,4 +74,13 @@
     font-size: 0.3rem;
     color:#CDD4E1;
   }
+  label.koala-label{
+    font-size: 0.3rem;
+    float: left;
+    line-height: 0.9rem;
+    padding-bottom: 0.12rem;
+    width: 30%;
+    text-align: left;
+    white-space: nowrap;
+  }
 </style>
