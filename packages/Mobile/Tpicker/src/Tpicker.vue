@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div class="tpicker-item">
     <div class="koala-input-box">
       <label class="koala-label">{{label}}</label>
       <div ref="dom" class="koala-input select-input-right"></div>
@@ -10,7 +10,6 @@
 
 <script>
 import Vue from 'vue';
-import moment from 'moment';
 import generateDateData  from './js/timeProps.js'
 import Picker from './js/PickerClass.js';
 import './css/popicker.css';
@@ -124,6 +123,12 @@ export default {
 
       return mydata;
     },
+    prefixZero(i){
+        return(i < 10 ? '0' : '') + i;
+    },
+    dateFormat(date){
+        return `${String(date.getFullYear())}-${this.prefixZero(date.getMonth()+1)}-${this.prefixZero(date.getDate())}`;
+    },
 		initialize(el) {
 		  let me = this;
       if(this.date) {
@@ -133,7 +138,7 @@ export default {
           childField: 'children'
         });
         if (this.maxDate) {
-          let time = moment(this.maxDate).format('YYYY-MM-DD');
+          let time = this.dateFormat(this.maxDate);
           let sourceData = [...this.sourceData];
           this.sourceData = this.filterData(sourceData, time);
         }
@@ -210,5 +215,19 @@ export default {
   border: 0;
   outline: 0;
   padding-right: 6%;
+  box-sizing: border-box;
+  font-size: 0.3rem;
+}
+label.koala-label{
+  font-size: 0.3rem;
+  float: left;
+  line-height: 0.9rem;
+  padding-bottom: 0.12rem;
+  width: 30%;
+  text-align: left;
+  white-space: nowrap;
+}
+.tpicker-item{
+  overflow: hidden;
 }
 </style>

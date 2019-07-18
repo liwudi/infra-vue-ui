@@ -66,6 +66,7 @@
             <InfraButton @click="submitEvent" style="width: 100%">确认</InfraButton>
           </InfraFormItem>
         </InfraForm>
+        <tpicker label="来借款申请地时间" name="comeDate" :maxDate="new Date()" :date="true"></tpicker>
       </div>
     </div>
 </template>
@@ -83,6 +84,7 @@ import MobileAlertMessage from '../../../packages/MobileAlert/index';
 import MessageBox from '../../../packages/MessageBox/index';
 import MobileMessageBox from '../../../packages/MobileMessageBox/index';
 import InfraMultipleSelectionInput from '../../../packages/MultipleSelectionInput/index';
+import Tpicker from '../../../packages/Mobile/Tpicker/index';
 import { dataSource } from './data';
 export default {
   name: 'component-list',
@@ -114,7 +116,8 @@ export default {
     InfraMultipleSelectionInput,
     InfraCheckBox,
     InfraForm,
-    InfraFormItem
+    InfraFormItem,
+    Tpicker
   },
   watch: {
     selectData: function (val) {
