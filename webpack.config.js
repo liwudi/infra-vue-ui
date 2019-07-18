@@ -13,7 +13,8 @@ module.exports = {
     'input.phone': './packages/Mobile/InputPhone/index.js',
     'input.radio': './packages/Mobile/InputRadio/index.js',
     'infra.textarea': './packages/Mobile/InfraTextarea/index.js',
-    'spicker': './packages/Mobile/Spicker/index.js'
+    'spicker': './packages/Mobile/Spicker/index.js',
+    'tpicker': './packages/Mobile/Tpicker/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
