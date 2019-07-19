@@ -14,7 +14,8 @@ module.exports = {
     'input.radio': './packages/Mobile/InputRadio/index.js',
     'infra.textarea': './packages/Mobile/InfraTextarea/index.js',
     'spicker': './packages/Mobile/Spicker/index.js',
-    'tpicker': './packages/Mobile/Tpicker/index.js'
+    'tpicker': './packages/Mobile/Tpicker/index.js',
+    'infra.calendar': './packages/Calendar/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

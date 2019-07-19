@@ -68,6 +68,11 @@
           </InfraFormItem>
         </InfraForm>
       </div>
+      <!-- 日历组件 -->
+      <div style="width:300px;height: 300px; margin: 0 auto;">
+        <Calendar @date-click="handleClick" @date-db-click="handleDbClick" @get-holidays="getHolidays" :holidayList="holidayList" defaultDate="2019-07-26"></Calendar>
+      </div>
+      <p>测试</p>
     </div>
 </template>
 
@@ -85,6 +90,7 @@ import MessageBox from '../../../packages/MessageBox/index';
 import MobileMessageBox from '../../../packages/MobileMessageBox/index';
 import InfraMultipleSelectionInput from '../../../packages/MultipleSelectionInput/index';
 import Tpicker from '../../../packages/Mobile/Tpicker/index';
+import Calendar from '../../../packages/Calendar/index';
 import { dataSource } from './data';
 export default {
   name: 'component-list',
@@ -105,7 +111,8 @@ export default {
         city: [{ required: true, message: '城市不为空', trigger: 'change' }],
         mobile: [{ required: true, message: '手机不为空', trigger: 'blur' }],
         code: [{ required: true, message: 'code不为空', trigger: 'blur' }]
-      }
+      },
+      holidayList: []
     };
   },
   components: {
@@ -117,7 +124,8 @@ export default {
     InfraCheckBox,
     InfraForm,
     InfraFormItem,
-    Tpicker
+    Tpicker,
+    Calendar
   },
   watch: {
     selectData: function (val) {
@@ -178,6 +186,34 @@ export default {
     },
     changeEvent: function (allList, choiceList) {
       console.log(allList, choiceList);
+    },
+    getHolidays (year, month) {
+      // 此方法，根据年和月来获取相应年月下的假日
+      switch (month) {
+        case 7:
+          this.holidayList = [
+            { name: '7月测试', date: '2019-07-18' },
+          ];
+          break;
+        case 8:
+          this.holidayList = [
+            { name: '8月测试', date: '2019-08-10' },
+          ];
+          break;
+        case 9:
+          this.holidayList = [
+            { name: '9月测试', date: '2019-09-5' },
+          ];
+          break;
+        default:
+          this.holidayList = [];
+      }
+    },
+    handleClick (date) {
+      // AlertMessage.info('您单击的日期为：' + date);
+    },
+    handleDbClick (date) {
+      AlertMessage.info('您双击的日期为：' + date);
     }
   }
 };
