@@ -41,7 +41,7 @@
         ></infra-select>
         <InfraCheckBox v-model="femaleData">female</InfraCheckBox>
       </div>
-      <tpicker label="来借款申请地时间" name="comeDate" :maxDate="new Date()" :date="true"></tpicker>
+
       <!--关于form表单的实验-->
       <div style="width: 100%;height: 500px;margin-top: 30px">
         <InfraForm ref="infraForm" v-model="formData" :rules="rules" style="width: 300px">
@@ -84,7 +84,6 @@ import MobileAlertMessage from '../../../packages/MobileAlert/index';
 import MessageBox from '../../../packages/MessageBox/index';
 import MobileMessageBox from '../../../packages/MobileMessageBox/index';
 import InfraMultipleSelectionInput from '../../../packages/MultipleSelectionInput/index';
-import Tpicker from '../../../packages/Mobile/Tpicker/index';
 import { dataSource } from './data';
 export default {
   name: 'component-list',
@@ -116,8 +115,7 @@ export default {
     InfraMultipleSelectionInput,
     InfraCheckBox,
     InfraForm,
-    InfraFormItem,
-    Tpicker
+    InfraFormItem
   },
   watch: {
     selectData: function (val) {

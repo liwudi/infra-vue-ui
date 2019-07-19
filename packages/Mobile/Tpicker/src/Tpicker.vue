@@ -200,11 +200,17 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  *{
+    margin:0;
+    padding:0;
+    font-family:"PingFangSC","Arial","Microsoft YaHei",sans-serif;
+    box-sizing: border-box;
+  }
 .koala-input {
   background-image: url('img/CombinedShape.png');
   background-repeat: no-repeat;
   background-size:auto 30%;
-  background-position: 100% 44%;
+  background-position: 100% 42%;
   float: right;
   height: 1.02rem;
   line-height: 0.9rem;
@@ -215,8 +221,8 @@ export default {
   border: 0;
   outline: 0;
   padding-right: 6%;
-  box-sizing: border-box;
   font-size: 0.3rem;
+  color: #465582;
 }
 label.koala-label{
   font-size: 0.3rem;
@@ -226,6 +232,7 @@ label.koala-label{
   width: 30%;
   text-align: left;
   white-space: nowrap;
+  color: #465582;
 }
 .koala-input-box{
   overflow:hidden;

@@ -110,12 +110,18 @@
 </script>
 
 <style lang="css" scoped>
+  *{
+    margin:0;
+    padding:0;
+    font-family:"PingFangSC","Arial","Microsoft YaHei",sans-serif;
+    box-sizing: border-box;
+  }
   .koala-input {
     overflow-x: auto;
     background-image: url('img/CombinedShape.png');
     background-repeat: no-repeat;
     background-size:auto 30%;
-    background-position: 100% 44%;
+    background-position: 100% 42%;
     float: right;
     height: 1.02rem;
     line-height: 0.9rem;
@@ -126,8 +132,9 @@
     border: 0;
     outline: 0;
     padding-right: 6%;
+    font-size: 0.3rem;
+    color: #465582;
   }
-
   .singlepicker{
     display:block;
     font-size: 0.36rem;
@@ -184,5 +191,19 @@
     background-color: #000000;
     opacity: 0.4;
     z-index: 8;
+  }
+  label.koala-label{
+    font-size: 0.3rem;
+    float: left;
+    line-height: 0.9rem;
+    padding-bottom: 0.12rem;
+    width: 30%;
+    text-align: left;
+    white-space: nowrap;
+    color: #465582;
+  }
+  .koala-input-box{
+    overflow: hidden;
+    width: 100%;
   }
 </style>
