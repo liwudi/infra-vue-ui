@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container-wrapper">
     <!-- 年月及上一年，下一年操作 -->
     <div class="calendar-title">
       <div class="btn-go-preview" @click="goPreviewMonth(currentYear,currentMonth)">&lt;</div>
@@ -235,6 +235,9 @@ export default {
 </script>
 
 <style scoped>
+  .container-wrapper{
+    min-width: 300px;
+  }
   .calendar-title{
     display: flex;
     align-items: center;

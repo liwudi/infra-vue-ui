@@ -69,7 +69,7 @@
         </InfraForm>
       </div>
       <!-- 日历组件 -->
-      <div style="width:300px;height: 300px; margin: 0 auto;">
+      <div style="width:200px;height: 500px; margin: 0 auto;">
         <Calendar @date-click="handleClick" @date-db-click="handleDbClick" @get-holidays="getHolidays" :holidayList="holidayList" defaultDate="2019-07-26"></Calendar>
       </div>
       <p>测试</p>
@@ -192,17 +192,17 @@ export default {
       switch (month) {
         case 7:
           this.holidayList = [
-            { name: '7月测试', date: '2019-07-18' },
+            { name: '7月测试', date: '2019-07-18' }
           ];
           break;
         case 8:
           this.holidayList = [
-            { name: '8月测试', date: '2019-08-10' },
+            { name: '8月测试', date: '2019-08-10' }
           ];
           break;
         case 9:
           this.holidayList = [
-            { name: '9月测试', date: '2019-09-5' },
+            { name: '9月测试', date: '2019-09-5' }
           ];
           break;
         default:
