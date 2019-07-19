@@ -55,6 +55,12 @@
 </script>
 <!-- Add 'scoped' attribute to limit CSS to this component only.-->
 <style scoped lang="css">
+  *{
+    margin:0;
+    padding:0;
+    font-family:"PingFangSC","Arial","Microsoft YaHei",sans-serif;
+    box-sizing: border-box;
+  }
   .koala-input-box{
     overflow:hidden;
   }
@@ -76,6 +82,7 @@
   }
   label.koala-label{
     font-size: 0.3rem;
+    color: #465582;
     float: left;
     line-height: 0.9rem;
     padding-bottom: 0.12rem;

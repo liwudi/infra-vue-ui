@@ -45,7 +45,14 @@
     }
   }
 </script>
-<style>
+<style scoped>
+  *{
+    margin:0;
+    padding:0;
+    font-family:"PingFangSC","Arial","Microsoft YaHei",sans-serif;
+    box-sizing: border-box;
+  }
+  input,button{box-shadow:none;}
   .radio-main{
     position: relative;
     display:inline-block;
@@ -53,6 +60,7 @@
     line-height: 1.02rem;
     text-align: left;
     padding-left: 0.53rem;
+    font-size: 0.3rem;
   }
   .radio-img{
     width:0.36rem;
@@ -70,6 +78,7 @@
     top:0;
     line-height: 0.9rem;
     display:inline-block;
+    color: #465582;
   }
   input[type="radio"]{
     line-height: 1.02rem;
