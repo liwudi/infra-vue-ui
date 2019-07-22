@@ -68,6 +68,12 @@
           </InfraFormItem>
         </InfraForm>
       </div>
+      <div>
+        <InfraSelect
+          :data-source="arr"
+          v-model="formData.city"
+        ></InfraSelect>
+      </div>
       <!-- 日历组件 -->
       <div style="width:200px;height: 500px; margin: 0 auto;">
         <Calendar @date-click="handleClick" @date-db-click="handleDbClick" @get-holidays="getHolidays" :holidayList="holidayList" defaultDate="2019-07-26"></Calendar>
@@ -127,6 +133,11 @@ export default {
     Tpicker,
     Calendar,
     InfraFormItem
+  },
+  mounted () {
+    setTimeout(() => {
+      this.formData.city = '天津';
+    }, 2000);
   },
   watch: {
     selectData: function (val) {

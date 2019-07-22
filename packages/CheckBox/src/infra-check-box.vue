@@ -49,6 +49,7 @@
     methods: {
       clickEvent () {
         this.isChecked = !this.isChecked;
+        this.$emit('input', this.isChecked);
       }
     }
   };
