@@ -1,8 +1,8 @@
 <template>
   <div
     :style="{
-      width: form.width,
-      height: form.height
+      width: width || form.width,
+      height: computedHeight
     }"
     class="infra-pc-userinfo-item"
   >
@@ -39,6 +39,18 @@
       disabled: {
         type: Boolean,
         default: false
+      },
+      size: {
+        default: 'default',
+        validator (val) {
+          return ['default', 'medium', 'small', 'mini'].indexOf(val) !== -1;
+        }
+      },
+      width: [String]
+    },
+    computed: {
+      computedHeight: function () {
+        return this.form.size[this.size];
       }
     },
     methods: {

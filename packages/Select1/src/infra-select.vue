@@ -2,7 +2,8 @@
   <div
     class="infra-select"
     :style="{
-      height: form.height
+      width: width || form.width,
+      height: computedHeight
     }"
   >
     <input
@@ -50,7 +51,19 @@
         default: false
       },
       placeholder: String,
-      dataSource: Array
+      dataSource: Array,
+      size: {
+        default: 'default',
+        validator (val) {
+          return ['default', 'medium', 'small', 'mini'].indexOf(val) !== -1;
+        }
+      },
+      width: [String]
+    },
+    computed: {
+      computedHeight: function () {
+        return this.form.size[this.size];
+      }
     },
     watch: {
       value: function (val) {
@@ -153,7 +166,7 @@
     border: 1px solid #d2d6de;
     margin: 0;
     padding: 0 5px;
-    font-size: 14px;
+    font-size: 12px;
     box-sizing: border-box;
   }
   .infra-input:focus {

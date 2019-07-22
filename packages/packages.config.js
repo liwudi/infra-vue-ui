@@ -13,6 +13,7 @@ export const form = {
   width: '200px',
   height: '40px',
   size: {
+    default: '40px',
     medium: '36px',
     small: '32px',
     mini: '28px'
