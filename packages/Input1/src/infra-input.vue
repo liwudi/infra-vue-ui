@@ -70,7 +70,6 @@
     width: 290px;
     display: inline-block;
     position: relative;
-    overflow: hidden;
     box-sizing: border-box;
   }
 

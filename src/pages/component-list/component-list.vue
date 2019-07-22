@@ -72,7 +72,13 @@
         <InfraSelect
           :data-source="arr"
           v-model="formData.city"
+          size="mini"
         ></InfraSelect>
+
+      </div>
+      <div>
+        123
+        <InfraInput1 size="mini" v-model="formData.mobile" style="min-width: 150px;width: 60%" placeholder="验证码"></InfraInput1>
       </div>
       <!-- 日历组件 -->
       <div style="width:200px;height: 500px; margin: 0 auto;">

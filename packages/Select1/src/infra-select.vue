@@ -161,7 +161,7 @@
   .infra-input {
     width: 100%;
     display: inline-block;
-    height: 35px;
+    height: 100%;
     outline: none;
     border: 1px solid #d2d6de;
     margin: 0;
