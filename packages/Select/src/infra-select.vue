@@ -151,7 +151,7 @@
   .infra-list-item:hover {
     background-color: #e6e6e6;
   }
-  .infra-size-mini {
+  .infra-mini {
     height: 30px;
   }
   .infra-top30 {
