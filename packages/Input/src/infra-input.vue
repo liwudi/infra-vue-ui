@@ -33,7 +33,7 @@
     },
     methods: {
       inputEvent (e) {
-        this.$emit('input', e);
+        this.$emit('input', e.target.value);
       },
       blurEvent (e) {
         this.$emit('blur', e);
