@@ -1,7 +1,7 @@
 <template>
-  <form class="infra-form">
+  <div class="infra-form">
     <slot></slot>
-  </form>
+  </div>
 </template>
 
 <script>
