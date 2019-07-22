@@ -155,7 +155,6 @@
     height: 40px;
     position: relative;
     display: inline-block;
-    background-color: red;
   }
 
   .infra-input {
