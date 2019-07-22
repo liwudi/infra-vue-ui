@@ -80,11 +80,18 @@
 </script>
 
 <style scoped lang="css">
+  *{
+    margin:0;
+    padding:0;
+    font-family:"PingFangSC","Arial","Microsoft YaHei",sans-serif;
+    box-sizing: border-box;
+  }
   .flex-box {
     display: flex;
   }
   .koala-input-box {
     overflow: hidden;
+    width: 100%;
     color: #465582;
   }
   .koala-input-box .input-box {
@@ -94,6 +101,7 @@
   .koala-input-box .span {
     color: #465582;
     padding-left: 5px;
+    font-size: 0.3rem;
   }
   .koala-input-box .koala-input {
     height: 1.02rem;
@@ -109,5 +117,15 @@
   .koala-input-box input::-webkit-input-placeholder {
     font-size: 0.24rem;
     color: #CDD4E1;
+  }
+  label.koala-label{
+    font-size: 0.3rem;
+    color: #465582;
+    float: left;
+    line-height: 0.9rem;
+    padding-bottom: 0.12rem;
+    width: 30%;
+    text-align: left;
+    white-space: nowrap;
   }
 </style>
