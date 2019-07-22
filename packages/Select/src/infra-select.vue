@@ -6,12 +6,13 @@
         :value="currentValue"
         disabled
         class="infra-input"
+        :class="{'infra-mini' : size === 'mini'}"
         :placeholder="placeholder"
         type="text"
         :style="{borderLeft: icon ? '1px solid #e6e6e6' : 'none'}"
       >
     </div>
-    <ul v-if="isShowList" class="infra-list">
+    <ul v-if="isShowList" class="infra-list" :class="{'infra-top30' : size === 'mini'}">
       <li v-for="item in list" :key="item" class="infra-list-item" @click="choiceEvent(item)">{{item}}</li>
       <li v-if="!list.length" class="infra-list-item">无数据</li>
     </ul>
@@ -33,7 +34,11 @@
       icon: {},
       placeholder: [String],
       value: [String, Object],
-      dataSource: [Array]
+      dataSource: [Array],
+      size: {
+        type: String,
+        default: 'default'
+      }
     },
     created () {
       this.bindDocumentClick();
@@ -145,5 +150,11 @@
 
   .infra-list-item:hover {
     background-color: #e6e6e6;
+  }
+  .infra-size-mini {
+    height: 30px;
+  }
+  .infra-top30 {
+    top: 30px;
   }
 </style>
