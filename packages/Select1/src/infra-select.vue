@@ -12,14 +12,14 @@
       class="infra-input"
       :class="{'infra-active-input': isShow}"
       :style="{
-        height: form.height
+        height: computedHeight
       }"
       v-model="currentValue"
       :disabled="!filterable"
       @focus="focusEvent"
       ref="input"
     >
-    <ul ref="ul" :style="{top: form.height}" v-show="isShow" class="infra-ul">
+    <ul ref="ul" :style="{top: computedHeight}" v-show="isShow" class="infra-ul">
       <li
         :class="{'infra-active-li': index === currentIndex}"
         class="infra-li infra-one-line"
