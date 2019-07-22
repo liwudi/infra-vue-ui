@@ -65,6 +65,7 @@
         this.nomalClickDeal();
         this.currentValue = item;
         this.$emit('input', item);
+        this.$emit('select', item);
         this.isShowList = false;
       },
       nomalClickDeal: function () {

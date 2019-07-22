@@ -53,6 +53,9 @@
       dataSource: Array
     },
     watch: {
+      value: function (val) {
+        this.currentValue = val;
+      },
       currentValue: function (val) {
         if (this.filterable) {
           this.optionlist = this.dataSource.filter(item => item.indexOf(val) !== -1);
