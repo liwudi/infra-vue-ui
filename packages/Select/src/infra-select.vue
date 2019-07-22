@@ -1,7 +1,7 @@
 <template>
-  <div class="infra-userinfo-item">
+  <div class="infra-userinfo-item" :class="{'infra-mini' : size === 'mini'}">
     <img v-if="icon" class="infra-iconsize" :src="icon" alt="手机">
-    <div @click.prevent="clickEvent" :style="{ marginLeft: icon ? '40px' : '0px' }" class="infra-input-box">
+    <div @click.prevent="clickEvent" :style="{ marginLeft: icon ? '40px' : '0px' }" class="infra-input-box" :class="{'infra-mini' : size === 'mini'}">
       <input
         :value="currentValue"
         disabled
