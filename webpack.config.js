@@ -16,8 +16,8 @@ module.exports = {
     'spicker': './packages/Mobile/Spicker/index.js',
     'tpicker': './packages/Mobile/Tpicker/index.js',
     'infra.calendar': './packages/Calendar/index.js',
-    'infra.bubble': './packages/Bubble/index.js'
-    'infra.carouselPreview': './packages/CarouselPreview/index.js',
+    'infra.bubble': './packages/Bubble/index.js',
+    'infra.carouselPreview': './packages/CarouselPreview/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
