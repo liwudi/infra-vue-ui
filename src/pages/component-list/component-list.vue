@@ -84,7 +84,9 @@
       <div style="width:200px;height: 500px; margin: 0 auto;">
         <Calendar @date-click="handleClick" @date-db-click="handleDbClick" @get-holidays="getHolidays" :holidayList="holidayList" defaultDate="2019-07-26"></Calendar>
       </div>
-      <p>测试</p>
+      <div style="width:200px;height: 50px; margin: 0 auto;">
+        <Bubble :voiceSrc="voiceUrl"></Bubble>
+      </div>
     </div>
 </template>
 
@@ -103,6 +105,7 @@ import MobileMessageBox from '../../../packages/MobileMessageBox/index';
 import InfraMultipleSelectionInput from '../../../packages/MultipleSelectionInput/index';
 import Tpicker from '../../../packages/Mobile/Tpicker/index';
 import Calendar from '../../../packages/Calendar/index';
+import Bubble from '../../../packages/Bubble/index';
 import { dataSource } from './data';
 export default {
   name: 'component-list',
@@ -125,7 +128,8 @@ export default {
         mobile: [{ required: true, message: '手机不为空', trigger: 'blur' }],
         code: [{ required: true, message: 'code不为空', trigger: 'blur' }]
       },
-      holidayList: []
+      holidayList: [],
+      voiceUrl: 'https://test-call-center.ucredit.com/attachment/4b26fda4-d8f4-45fb-82b3-f39cbf86d491.wav'
     };
   },
   components: {
@@ -138,7 +142,8 @@ export default {
     InfraForm,
     Tpicker,
     Calendar,
-    InfraFormItem
+    InfraFormItem,
+    Bubble
   },
   mounted () {
     setTimeout(() => {
@@ -210,7 +215,7 @@ export default {
       switch (month) {
         case 7:
           this.holidayList = [
-            { name: '7月测试', date: '2019-07-18' }
+            { name: '小 暑', date: '2019-07-07' }
           ];
           break;
         case 8:

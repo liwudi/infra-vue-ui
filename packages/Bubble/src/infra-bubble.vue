@@ -2,7 +2,8 @@
   <div class="bubble-wrapper">
     <audio preload="auto" ref="audio" hidden controls @canplaythrough="countTime" @play="openPlaying" @pause="pausePlaying"><source :src="voiceSrc" type="audio/wav"></audio>
     <div class="voice" @click="handlePlay" v-if="time">
-      <div class="bg" ref="playing"><span class="time">{{time}}</span></div>
+      <div class="bg" ref="playing"></div>
+      <span class="time">{{time}}</span>
     </div>
   </div>
 </template>
@@ -75,9 +76,11 @@
     height: 40px;
   }
   .voice{
+    display: flex;
+    align-items: center;
     height: 38px;
     width: 175px;
-    padding-top: 8px;
+    box-sizing: border-box;
     padding-left: 26px;
     background: #CDD4E1;
     border-radius: 20px;
@@ -92,10 +95,10 @@
     line-height: 24px;
     background-size: 400%;
   }
-  .bg .time{
+  .time{
     display: inline-block;
     width: 60px;
-    margin-left: 38px;
+    margin-left: 20px;
     color: #fff;
     font-size: 17px;
   }
