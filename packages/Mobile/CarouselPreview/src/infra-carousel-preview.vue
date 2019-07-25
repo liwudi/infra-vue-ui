@@ -1,12 +1,12 @@
 <template>
-  <div class="scroll-wrapper" v-if="showPreview">
+  <div class="scroll-wrapper" v-if="flag && imgList.length > 0">
     <transition-group
-    tag="ul"
+    tag="div"
     v-if="imgList.length > 0"
-    class='scroll-ul'
+    class='scroll-parent'
     :name="direction">
-      <li
-        class="scroll-li"
+      <div
+        class="scroll-child"
         v-for="(item, index) in imgList"
         :key="item"
         v-show="currentIndex === index"
@@ -14,8 +14,8 @@
         @touchmove="handleTouchMove"
         @touchend="handleTouchEnd"
         >
-        <img :src="item" style="max-width: 100%; max-height: 100%;" alt="哎呦，图片走丢了">
-      </li>
+        <img :src="item" alt="哎呦，图片走丢了">
+      </div>
     </transition-group>
     <!-- 页码显示 -->
     <div class="pages">{{(currentIndex+1)+'/'+imgList.length}}</div>
@@ -23,18 +23,19 @@
     <span @click="closePreview" class="iconfont iconclose-circle preview-close"></span>
   </div>
 </template>
-  
 <script>
   export default {
-    name: "infra-carousel-preview",
+    name: 'infra-carousel-preview',
     props: {
       list: {
         type: Array,
-        default: []
+        default: function () {
+          return [];
+        }
       },
       clickImgIndex: {
         type: [String, Number],
-        default: 0
+        default: 1
       },
       showPreview: Boolean
     },
@@ -43,7 +44,7 @@
         imgList: [],
         currentIndex: 0,
         isMoving: false,
-        boundary: window.innerWidth/6, // 触发切换的阈值
+        boundary: window.innerWidth / 6, // 触发切换的阈值
         start: {
           x: 0,
           y: 0
@@ -52,10 +53,12 @@
           x: 0,
           y: 0
         },
-        direction: 'left'
+        direction: 'left',
+        flag: null
       }
     },
     mounted () {
+      this.flag = this.showPreview;
       this.imgList = this.list;
     },
     watch: {
@@ -64,6 +67,14 @@
       },
       list: function (val) {
         this.imgList = val;
+      },
+      showPreview: function (val) {
+        this.flag = val;
+      },
+      flag: function (val) {
+        if (val === false) {
+          this.$parent.showPreview = false;
+        }
       }
     },
     methods: {
@@ -83,16 +94,16 @@
       },
       handleTouchEnd (e) {
         if (this.isMoving) {
-          e.preventDefault()
-          e.stopPropagation()
+          e.preventDefault();
+          e.stopPropagation();
           let distance = this.offSet.x;
-          if(distance >= this.boundary){
+          if (distance >= this.boundary) {
             this.currentIndex--;
             this.direction = 'right';
-            if(this.currentIndex < 0){
+            if (this.currentIndex < 0) {
               this.currentIndex = 0;
             }
-          }else if(distance <= -this.boundary){
+          } else if (distance <= -this.boundary) {
             this.currentIndex++;
             this.direction = 'left';
             if(this.currentIndex > this.imgList.length - 1){
@@ -101,11 +112,11 @@
           }else{
             // 保持此图片不做滑动操作
           }
-          this.isMoving = false
+          this.isMoving = false;
         }
       },
       closePreview () {
-        this.$emit('closePreview');
+        this.flag = false;
       }
     }
   }
@@ -113,23 +124,25 @@
 
 <style scoped>
   .scroll-wrapper{
-    position:absolute;
-    width: 100%;
-    height: 100%;
+    position:fixed;
     top:0;
     left: 0;
+    right: 0;
+    bottom: 0;
     background: #000;
-    overflow: hidden;
   }
-  .scroll-ul{
+  .scroll-parent{
     list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: 100%;
   }
-  .scroll-li{
+  .scroll-child{
     position: absolute;
+    left: 0;
+    right: 0;
   }
   img{
     max-width: 100%;
@@ -144,9 +157,12 @@
   }
   .preview-close{
     display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
     position: absolute;
-    top: .3rem;
-    right: .3rem;
+    top: .5rem;
+    right: .4rem;
     z-index: 666;
     font-size: .5rem;
     color: gray;
