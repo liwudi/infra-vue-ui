@@ -98,8 +98,6 @@
             let item = myArr.find(item => item.id === arr[i]);
             if (item) {
               item.isChoice = true;
-            } else {
-              item.isChoice = true;
             }
           }
           this.sourceList = myArr;
