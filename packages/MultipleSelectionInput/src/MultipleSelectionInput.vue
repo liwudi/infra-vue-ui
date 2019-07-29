@@ -89,7 +89,6 @@
       }
     },
     watch: {
-      // @todo: 这一块有待优化。最后进行this.sourceList进行赋值。
       dataSource: function (val, old) {
         if (val !== old) {
           let myArr = JSON.parse(JSON.stringify(val));
@@ -121,8 +120,6 @@
           let item = this.sourceList.find(item => item.id === arr[i]);
           if (item) {
             item.isChoice = true;
-          } else {
-            item.isChoice = false;
           }
         }
       }
