@@ -1,7 +1,7 @@
 <template>
   <div class="infra-my-modal-bg infra-center">
     <div class="infra-flexBox infra-flexCol infra-my-modal">
-      <div class="infra-flex3 infra-center">{{message || '消息提示文本'}}</div>
+      <div class="infra-flex2 infra-center infra-tips">{{message || '消息提示文本'}}</div>
       <div @click="click" class="infra-flex1 infra-center infra-btn">关闭</div>
     </div>
   </div>
@@ -66,7 +66,7 @@
     flex: 1;
   }
 
-  .infra-flex3 {
+  .infra-flex2 {
     flex: 2;
   }
 
@@ -74,5 +74,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .infra-tips {
+    text-align: center;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 </style>
