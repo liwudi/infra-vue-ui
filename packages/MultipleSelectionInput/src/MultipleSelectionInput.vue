@@ -290,7 +290,7 @@
   }
   .deleteAll-style{
     margin: 5px 0;
-    padding: 5px 10px;
+    padding: 0 10px;
     outline: none;
     background: #6392fe;
     color: #fff;
