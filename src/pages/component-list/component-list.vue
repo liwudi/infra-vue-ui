@@ -91,6 +91,14 @@
       <div style="width:200px;height: 50px; margin: 0 auto;">
         <CarouselPreview :list="imgList" :clickImgIndex="clickImgNum" :showPreview="showPreview"></CarouselPreview>
       </div>
+      <InfraMultipleSelectionInput
+        :dataSource="dataSource"
+        :checkedList="list"
+        :showDeleteBtn="false"
+        @change="onChange"
+        style="width: 300px;"
+      >
+      </InfraMultipleSelectionInput>
     </div>
 </template>
 
@@ -137,7 +145,8 @@ export default {
       voiceUrl: 'https://test-call-center.ucredit.com/attachment/4b26fda4-d8f4-45fb-82b3-f39cbf86d491.wav',
       imgList: ['https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563996988483&di=2386a3e08e33cc7b03be7faf34bf9efa&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F84%2F06%2F28300542166456137909064366422_950.jpg','https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563996988480&di=706757f35081d2fd1dab7c9a5b607264&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201410%2F02%2F20141002160023_ASSyT.jpeg','https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563996988477&di=4ba7b4964f41ea757d784a0738fb25f7&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F0%2F54801aa420c94.jpg'],
       showPreview: false,
-      clickImgNum: 0
+      clickImgNum: 0,
+      list: [706, 704]
     };
   },
   components: {

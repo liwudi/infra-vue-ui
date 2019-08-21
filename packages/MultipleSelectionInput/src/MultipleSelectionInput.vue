@@ -23,6 +23,7 @@
         </div>
       </div>
     </div>
+    <button class="deleteAll-style" @click="deleteAllChoice" v-if="showDeleteBtn">全部删除</button>
     <div class="infra-resultContainer">
       <div :key="result.id" class="infra-result" v-for="result in choicedList">{{result.name}}<span @click="deleteEvent(result)" class="infra-delete-style"><span class="infra-deleteSpan1"></span><span class="infra-deleteSpan2"></span></span></div>
     </div>
@@ -53,7 +54,8 @@
       checkedList: {
         type: Array,
         default: function () { return []; }
-      }
+      },
+      showDeleteBtn: Boolean
     },
     computed: {
       /**
@@ -125,6 +127,14 @@
       }
     },
     methods: {
+      // 删除选中的
+      deleteAllChoice () {
+        this.sourceList = this.sourceList.map(source => {
+          source.isChoice = false;
+          return source;
+        });
+        this.$emit('change', this.sourceList, this.choicedList);
+      },
       // todo:优化3，关于sourceList的更新操作，必须使用赋值操作赋，返回一个新的数组。
       deleteEvent (item) {
         this.sourceList = this.sourceList.map(source => {
@@ -277,5 +287,14 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%) rotate(135deg);
+  }
+  .deleteAll-style{
+    margin: 5px 0;
+    padding: 5px 10px;
+    outline: none;
+    background: #6392fe;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 5px;
   }
 </style>
