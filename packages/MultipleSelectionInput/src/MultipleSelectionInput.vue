@@ -289,7 +289,7 @@
     transform: translate(-50%, -50%) rotate(135deg);
   }
   .deleteAll-style{
-    margin: 5px 0;
+    margin: 10px 0 0;
     padding: 0 10px;
     outline: none;
     background: #6392fe;
